@@ -1,15 +1,15 @@
 {
 	"apiVersion": 2,
-	"name": "bdt/boilerplate",
+	"name": "bdt/advanced-button",
 	"version": "0.1.0",
-	"title": "Bootstrap Block",
-	"category": "bdt-blocks",
-	"description": "Simple bootstrap block description.",
+	"title": "Advanced Button",
+	"category": "advanced-button",
+	"description": "Simple advanced button block description.",
 	"supports": {
 		"html": false,
 		"anchor": true
 	},
-	"textdomain": "bdt-blocks",
+	"textdomain": "advanced-button",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"

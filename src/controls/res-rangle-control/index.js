@@ -95,7 +95,7 @@ const ResRangleControl = ({
 									[`${controlName}MobRange`]: value,
 								})
 							}
-							min={min}
+							min={min} 
 							max={max}
 						/>
 					</div>

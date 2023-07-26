@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       BDT Blocks
- * Description:       Starter plugin for creating Gutenberg blocks with zero configuration.
+ * Plugin Name:       Advanced Button
+ * Description:       advanced button plugin for creating Gutenberg blocks with zero configuration.
  * Requires at least: 5.7
  * Requires PHP:      7.0
  * Version:           1.0.0
@@ -9,7 +9,7 @@
  * Author URI:        https://bdthemes.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       bdt-blocks
+ * Text Domain:       advanced-button
  *
  * @package           @wordpress/create-block 
  */
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * @package BDT Blocks 
+ * @package Advanced Button 
  * @version 1.0.0
  * Final Class BDT Blocks
  */
@@ -66,8 +66,8 @@ final class BDT_BLOCKS_CLASS {
      * Define Constants
      */
     public function define_constants(){
-        define('BDT_NAME', 'bdt-blocks');
-		define('BDT_SLUG', 'bdt-blocks');
+        define('BDT_NAME', 'advanced-button');
+		define('BDT_SLUG', 'advanced-button');
         define('BDT_VERSION', '1.0.0');
         define('BDT_FILE', __FILE__);
 		define('BDT_DIR', __DIR__);

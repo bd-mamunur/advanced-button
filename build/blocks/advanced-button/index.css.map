@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/advanced-button/index.css","mappings":";;;AAAA;;CAAA,C","sources":["webpack://gutenberg-boilerplate/./src/blocks/advanced-button/editor.scss"],"sourcesContent":["/*\r\n* Style Works for Editor Only\r\n*/\r\n\r\n.wp-block-bdt-advanced-button {\r\n\t\r\n}\r\n"],"names":[],"sourceRoot":""}

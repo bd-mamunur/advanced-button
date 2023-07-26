@@ -12,18 +12,13 @@ const attributes = {
 	blockStyle: {
 		type: 'object',
 	},
-	title: {
-		type: 'string',
+	preset:{
+		type:'string'
 	},
-	titleColor: {
-		type: 'string',
+	btnText:{
+		type:'string'
 	},
-	description: {
-		type: 'string',
-	},
-	descriptionColor: {
-		type: 'string',
-	},
+
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
 		defaults: {

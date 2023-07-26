@@ -78,8 +78,8 @@ class BDT_BLOCKS_LOADER {
         return array_merge(
             [
                 [
-                    'slug' => 'bdt-blocks',
-                    'title' => __( 'BDT Blocks', 'bdt-blocks' )
+                    'slug' => 'advanced-button',
+                    'title' => __( 'Advanced Button', 'advanced-button' )
                 ],
             ],
             $categories

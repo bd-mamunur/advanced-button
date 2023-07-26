@@ -9,6 +9,7 @@ module.exports = [
 		entry: {
 			modules: path.resolve(process.cwd(), 'src', 'modules-export.js'),
 		},
+		mode: 'development',
 		module: {
 			rules: [
 				{
@@ -26,6 +27,7 @@ module.exports = [
 				},
 			],
 		},
+	
 		output: {
 			path: path.resolve(process.cwd(), 'modules'),
 			filename: 'index.js',

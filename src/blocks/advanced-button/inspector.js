@@ -2,8 +2,8 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import { InspectorControls} from '@wordpress/block-editor';
+import { PanelBody,SelectControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -20,11 +20,11 @@ import objAttributes from './attributes';
 // import ColorControl from '../../controls/color-control';
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { titleColor, descriptionColor } = attributes;
+	const { preset} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	return (
-		<div className="bdt-inspector-controls">
+	
 			<InspectorControls>
 				{/* <ColorControl
 					label={__('Title Color', 'bdt-blocks')}
@@ -32,9 +32,26 @@ const Inspector = ({ attributes, setAttributes }) => {
 					attrName="titleColor"
 					setAttributes={setAttributes}
 				/> */}
-				<PanelBody title={__('Column Settings', 'bdt-blocks')}>
+
+				<PanelBody title={__('Button', 'advanced-button')}>
+			
+						<SelectControl
+							label={__('preset','advanced-button')}
+							value={ preset }
+							options={ [
+								{ label: 'Preset 1', value: 'style-1' },
+								{ label: 'Preset 2', value: 'style-2' },
+								{ label: 'Preset 3', value: 'style-3' },
+								{ label: 'Preset 4', value: 'style-4' },
+							] }
+							onChange={ ( presetV ) => { setAttributes( { preset:presetV } ) } }
+						/>
+				
+				</PanelBody>
+
+				<PanelBody title={__('Column Settings', 'advanced-button')}>
 					<ResRangleControl
-						label={__('Grid Columns', 'bdt-blocks')}
+						label={__('Grid Columns', 'advanced-button')}
 						controlName={GRID_COLUMNS}
 						objAttrs={objAttrs}
 						noUnits={false}
@@ -42,26 +59,9 @@ const Inspector = ({ attributes, setAttributes }) => {
 						max={4}
 					/>
 				</PanelBody>
-				<PanelColorSettings
-					title={__('Color Settings', 'bdt-blocks')}
-					initialOpen={false}
-					colorSettings={[
-						{
-							value: titleColor,
-							onChange: (value) =>
-								setAttributes({ titleColor: value }),
-							label: __('Title Color', 'bdt-blocks'),
-						},
-						{
-							value: descriptionColor,
-							onChange: (value) =>
-								setAttributes({ descriptionColor: value }),
-							label: __('Description Color', 'bdt-blocks'),
-						},
-					]}
-				/>
+				
 			</InspectorControls>
-		</div>
+	
 	);
 };
 
