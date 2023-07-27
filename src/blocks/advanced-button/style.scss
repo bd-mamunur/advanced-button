@@ -63,6 +63,13 @@
 	// .button-2:focus {
 	// 	text-decoration: none;
 	// }
+
+	// span:hover {
+	// 	background-color: #395ddf;
+	// 	text-decoration: none;
+	// 	box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
+	// 	border: 1px solid #395ddf;
+	// }
 	
 	// .button-2:hover {
 	// 	background-color: var(--hover-color);
@@ -83,63 +90,63 @@
 	
 	/* Button number 3 css here  */
 
-	.button-3 {
-		color: #000;
-		background-color: transparent;
-		border: 1px solid #266DB6;
-		position: relative;
-		touch-action: manipulation; 
-	}
+	// .button-3 {
+	// 	color: #000;
+	// 	background-color: transparent;
+	// 	border: 1px solid #266DB6;
+	// 	position: relative;
+	// 	touch-action: manipulation; 
+	// }
 	  
-	  .button-3:hover,
-	  .button-3:active {
-		outline: 0;
-	  }
+	//   .button-3:hover,
+	//   .button-3:active {
+	// 	outline: 0;
+	//   }
 	  
-	  .button-3:hover {
-		background-color: transparent;
-	  }
+	//   .button-3:hover {
+	// 	background-color: transparent;
+	//   }
 	  
-	  .button-3:before {
-		background-color: #D5EDF6;
-		content: "";
-		height: calc(100% + 3px);
-		position: absolute;
-		right: -7px;
-		top: -9px;
-		transition: background-color 300ms ease-in;
-		width: 100%;
-		z-index: -1;
-	  }
+	//   .button-3:before {
+	// 	background-color: #D5EDF6;
+	// 	content: "";
+	// 	height: calc(100% + 3px);
+	// 	position: absolute;
+	// 	right: -7px;
+	// 	top: -9px;
+	// 	transition: background-color 300ms ease-in;
+	// 	width: 100%;
+	// 	z-index: -1;
+	//   }
 	  
-	  .button-3:hover:before {
-		background-color: #6DCFF6;
-	  }
+	//   .button-3:hover:before {
+	// 	background-color: #6DCFF6;
+	//   }
 	
 	  /* Button number 4  */
 	
-	  .button-4 {
-		outline: 0;
-		border: 1px solid black;
-		position: relative;
-	  }
+	//   .button-4 {
+	// 	outline: 0;
+	// 	border: 1px solid black;
+	// 	position: relative;
+	//   }
 	  
-	  .button-4:after {
-		content: "";
-		background-color: #ffe54c;
-		width: 100%;
-		z-index: -1;
-		position: absolute;
-		height: 100%;
-		top: 7px;
-		left: 7px;
-		transition: 0.2s;
-	  }
+	//   .button-4:after {
+	// 	content: "";
+	// 	background-color: #ffe54c;
+	// 	width: 100%;
+	// 	z-index: -1;
+	// 	position: absolute;
+	// 	height: 100%;
+	// 	top: 7px;
+	// 	left: 7px;
+	// 	transition: 0.2s;
+	//   }
 	  
-	  .button-4:hover:after {
-		top: 0px;
-		left: 0px;
-	  }
+	//   .button-4:hover:after {
+	// 	top: 0px;
+	// 	left: 0px;
+	//   }
 	
 	
 	

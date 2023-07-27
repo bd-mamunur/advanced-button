@@ -43,6 +43,12 @@ const Inspector = ({ attributes, setAttributes }) => {
 								{ label: 'Preset 2', value: 'style-2' },
 								{ label: 'Preset 3', value: 'style-3' },
 								{ label: 'Preset 4', value: 'style-4' },
+								{ label: 'Preset 5', value: 'style-5' },
+								{ label: 'Preset 6', value: 'style-6' },
+								{ label: 'Preset 7', value: 'style-7' },
+								{ label: 'Preset 8', value: 'style-8' },
+								{ label: 'Preset 9', value: 'style-9' },
+								{ label: 'Preset 10', value: 'style-10' },
 							] }
 							onChange={ ( presetV ) => { setAttributes( { preset:presetV } ) } }
 						/>

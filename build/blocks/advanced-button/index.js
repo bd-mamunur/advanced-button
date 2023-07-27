@@ -115,27 +115,6 @@ function Edit(_ref) {
     }
   }, []);
 
-  // .${uniqueId} .bdt-title {
-  // 	color: ${titleColor};
-  // }
-  // .${uniqueId} .bdt-description {
-  // 	color: ${descriptionColor};
-  // }
-
-  // .${uniqueId} .bdt-button
-
-  // .${uniqueId} .bdt-button
-
-  // .${uniqueId} .bdt-button:active {
-  // 	box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
-  // 	outline: 0;
-  // }
-
-  // .${uniqueId} .bdt-button:not([disabled]):active {
-  // 	box-shadow: #fff 2px 2px 0 0, #395ddf 2px 2px 0 1px;
-  // 	transform: translate(2px, 2px);
-  // }
-
   /**
    * Presets Based Styles
    */
@@ -170,22 +149,26 @@ function Edit(_ref) {
 				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				padding: 12px 40px;
+				color:black;
+			
 			 }
-			 .${uniqueId} .bdt-button:focus {
+
+			 .${uniqueId} span:hover {
+				 	background-color: #395ddf;
+				 	text-decoration: none;
+				 	box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
+				 	border: 1px solid #395ddf;
+				 }
+			.${uniqueId} span:focus {
 				 	text-decoration: none;
 				 }
-			.${uniqueId} .bdt-button:hover {
-					background-color: #395ddf;
-					text-decoration: none;
-					box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-					border: 1px solid #395ddf;
-				}
-			.${uniqueId} .bdt-button:active {
+	
+			.${uniqueId} span:active {
 				box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
 				outline: 0;
 			}
 		
-			.${uniqueId} .bdt-button:not([disabled]):active {
+			.${uniqueId} span:not([disabled]):active {
 				box-shadow: #fff 2px 2px 0 0, #395ddf 2px 2px 0 1px;
 				transform: translate(2px, 2px);
 			}		 
@@ -194,19 +177,86 @@ function Edit(_ref) {
       break;
     case 'style-3':
       presetStyles = `
-			.${uniqueId} .bdt-button{
-			
-			 }
+
+			 .${uniqueId} .bdt-button {
+				color: #000;
+				background-color: green;
+				padding: 12px 40px;
+				border: 1px solid #266DB6;
+				position: relative;
+				touch-action: manipulation; 
+			}
+			  
+			.${uniqueId} .bdt-button:hover{
+				outline: 0;
+			}
+			.${uniqueId} .bdt-button:active {
+				outline: 0;
+			  }
+			  
+			  .${uniqueId} .bdt-button:hover {
+				background-color: transparent;
+			  }
+			  
+			  .${uniqueId} .bdt-button:before {
+				background-color: #D5EDF6;
+				content: "";
+				height: calc(100% + 3px);
+				position: absolute;
+				right: -7px;
+				top: -9px;
+				transition: background-color 300ms ease-in;
+				width: 100%;
+				z-index: -1;
+			  }
+			  
+			  .${uniqueId} .bdt-button:hover:before {
+				background-color: #6DCFF6;
+				content: "";
+				position: absolute;
+			  }
 			
 			`;
       break;
     case 'style-4':
+      presetStyles = `   
+		 	.${uniqueId} .bdt-button{
+				outline: 0;
+				border: 1px solid black;
+				position: relative;
+				background-color: green;
+				padding: 12px 40px;
+				color:black;
+				
+			  }
+			  
+			.${uniqueId} span.bdt-button:after {
+				content: "";
+				background-color: #ffe54c;
+				width: 100%;
+				z-index: -1;
+				position: absolute;
+				height: 100%;
+				top: 7px;
+				left: 7px;
+				transition: 0.2s;
+			  }
+			  
+		    .${uniqueId} span.bdt-button:hover:after {
+				top: 0px;
+				left: 0px;
+			  }
+			
+			`;
+      break;
+    case 'style-5':
       presetStyles = ``;
       break;
     default:
       '';
   }
   const deskStyles = `
+
 	  ${presetStyles}
 	`;
   const tabStyles = `
@@ -235,7 +285,7 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
-  console.log(deskStyles);
+  console.log(presetStyles);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_5__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -245,15 +295,16 @@ function Edit(_ref) {
     className: "container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-button-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "bdt-button",
+    role: "button",
     tagName: "span",
     value: btnText,
     onChange: content => setAttributes({
       btnText: content
     }),
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label…', 'advanced-button')
-  })))));
+  }))))));
 }
 
 /***/ }),
@@ -372,6 +423,24 @@ const Inspector = _ref => {
     }, {
       label: 'Preset 4',
       value: 'style-4'
+    }, {
+      label: 'Preset 5',
+      value: 'style-5'
+    }, {
+      label: 'Preset 6',
+      value: 'style-6'
+    }, {
+      label: 'Preset 7',
+      value: 'style-7'
+    }, {
+      label: 'Preset 8',
+      value: 'style-8'
+    }, {
+      label: 'Preset 9',
+      value: 'style-9'
+    }, {
+      label: 'Preset 10',
+      value: 'style-10'
     }],
     onChange: presetV => {
       setAttributes({
@@ -419,15 +488,20 @@ function save(_ref) {
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
     className: `${uniqueId}`
-  }), btnText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }), btnText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bdt-button-wrap"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: "www.facebook.com",
     target: "_blank",
     rel: "noopener"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "span",
+    role: "button",
     className: "bdt-button",
     value: btnText
-  })));
+  }))))));
 }
 
 /***/ }),
