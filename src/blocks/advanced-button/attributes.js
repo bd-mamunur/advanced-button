@@ -3,7 +3,7 @@ import * as generators from '../../generators';
 
 const { generateResRangleControlAttributes } = generators;
 
-const { GRID_COLUMNS } = constants;
+const { GRID_COLUMNS,BUTTON_FONTSIZE } = constants;
 
 const attributes = {
 	uniqueId: {
@@ -18,6 +18,32 @@ const attributes = {
 	btnText:{
 		type:'string'
 	},
+	btnLinkObj: {
+		type: 'object',
+	},
+	btnRadius: {
+		type: 'string',
+		default: '5',
+	},
+	btnAlign: {
+		type: 'string',
+		default: 'left',
+	},
+	btnBorder: {
+		type: 'string',
+		default: '#ccc',
+	},
+	btnBorderColor: {
+		type: 'string',
+	},
+	btnColor: {
+		type: 'string',
+		default: '#ccc',
+	},
+	btnBgColor: {
+		type: 'string',
+		default: '#fff',
+	},
 
 	...generateResRangleControlAttributes({
 		controlName: GRID_COLUMNS,
@@ -25,6 +51,15 @@ const attributes = {
 			[`${GRID_COLUMNS}DeskRange`]: 3,
 			[`${GRID_COLUMNS}TabRange`]: 2,
 			[`${GRID_COLUMNS}MobRange`]: 1,
+		},
+	}),
+	...generateResRangleControlAttributes({
+		controlName: BUTTON_FONTSIZE,
+		defaults: {
+			[`${BUTTON_FONTSIZE}DeskRange`]: 14,
+			[`${BUTTON_FONTSIZE}TabRange`]: 12,
+			[`${BUTTON_FONTSIZE}MobRange`]: 10,
+			[`${BUTTON_FONTSIZE}Unit`]: 'px',
 		},
 	}),
 };

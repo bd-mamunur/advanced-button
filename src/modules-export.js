@@ -1,1 +1,1 @@
-export { default as ColorControl } from './controls/color-control';
+// export { default as ColorControl } from './controls/color-control';

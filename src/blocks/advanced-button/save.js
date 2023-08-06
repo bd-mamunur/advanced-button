@@ -15,16 +15,13 @@ export default function save({ attributes }) {
 			(
 			<div className="container">
 				<div className="bdt-button-wrap">
+				<div className="bdt-link-btn">
 					<a href="www.facebook.com"  target='_blank' rel='noopener'>
-					 <span>	
 						<RichText.Content
-						    tagName='span'
-							role='button'
-							className='bdt-button'
 							value={ btnText }
 						/>
-					  </span>				 
 					</a>
+				</div>	
 				</div>
 			</div>
 
