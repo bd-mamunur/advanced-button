@@ -35,11 +35,16 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnBgColor
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
-
+	const {
+		[`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
+		[`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
+		[`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
+		[`${BUTTON_FONTSIZE}Unit`]: btnSelect,
+	} = attributes;
 	return (
 	
 			<InspectorControls>
-				<PanelBody title={__('Button', 'advanced-button')}>
+				{/* <PanelBody title={__('Button', 'advanced-button')}>
 			
 						<SelectControl
 							label={__('preset','advanced-button')}
@@ -64,12 +69,25 @@ const Inspector = ({ attributes, setAttributes }) => {
 						min={1}
 						max={4}
 					/>
-				</PanelBody>
+				</PanelBody> */}
 
 				<PanelBody
 				title={__('Button', 'advanced-icon-box')}
 				initialOpen={false}
 			>
+  
+  				<SelectControl
+					label={__('preset','advanced-button')}
+					value={ preset }
+					options={ [
+					{ label: 'Preset 1', value: 'style-1' },
+					{ label: 'Preset 2', value: 'style-2' },
+					{ label: 'Preset 3', value: 'style-3' },
+						
+					] }
+					onChange={ ( presetV ) => { setAttributes( { preset:presetV } ) } }
+				/>
+
 				<TextControl
 					label={__('Button Label', 'advanced-icon-box')}
 					value={btnText}
@@ -102,7 +120,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 					controlName={BUTTON_FONTSIZE}
 					objAttrs={objAttrs}
 					noUnits={false}
-					max={50}
+					max={100}
 					min={5}
 				/>
 

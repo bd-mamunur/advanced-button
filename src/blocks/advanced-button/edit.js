@@ -21,6 +21,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		blockStyle,
 	    preset,
 		btnText,
+		btnRadius,
+		btnAlign,
+		btnBorder,
+		btnBorderColor
 	} = attributes;
 
 	useEffect(() => {
@@ -29,34 +33,55 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		}
 	}, []);
 
-
+	const {
+		[`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
+		[`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
+		[`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
+		[`${BUTTON_FONTSIZE}Unit`]: btnUnit,
+	} = attributes;
 	
 
 	/**
 	 * Presets Based Styles
 	 */
-
+	 
 	let presetStyles;
 	switch (preset) {
 		case 'style-1':
 			presetStyles = `
-			.${uniqueId} .bdt-button{
-				border-radius: 4px;
-				background-color: green;
-				border: 0;
+			.${uniqueId} .bdt-link-btn span{
+				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
 				color: #fff;
 				cursor: pointer;
+				background-color: green;
 				display: inline-block;
 				font-size: 14px;
 				font-weight: 400;
 				line-height: 20px;
-				padding: 12px 40px;
+				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
 			 }
+			 .${uniqueId} .bdt-link-btn a{
+				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				box-sizing: border-box;
+				color: #fff;
+				cursor: pointer;
+				background-color: green;
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 20px;
+				padding:18px 0;
+				text-align: center;
+				text-transform: none;
+				white-space: nowrap;
+				transition: .2s ease-in;
+			 }
+			
 			`;
 			break;
 		case 'style-2':
@@ -65,17 +90,19 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				background-color: #395ddf;
 				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-				padding: 12px 40px;
+			    padding:18px 0;
+				display: inline-block;
 				color:black;
-			
+				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
 				background-color: #395ddf;
 				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-				padding: 12px 40px;
+			    padding:18px 0;
+				display: inline-block;
 				color:black;
-			
+				text-align:center
 			 }
 			
 			
@@ -127,16 +154,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				background-color: green;
 				padding: 12px 40px;
 				border: 1px solid #266DB6;
+				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
+				text-align:center;
 			}
 			.${uniqueId} .bdt-link-btn a {
 				color: #000;
 				background-color: green;
 				padding: 12px 40px;
 				border: 1px solid #266DB6;
+				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
+				text-align:center;
 			}
 			  
 			.${uniqueId} .bdt-link-btn span:hover{
@@ -200,15 +231,59 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			'';
 	}
 
-
+	
 	const deskStyles = `
+		.${uniqueId} .bdt-button-wrap{
+				text-align: ${btnAlign};
+			}
+ 	    .${uniqueId} .bdt-action span{
+			width:${btnFontSizeDesk}${btnUnit};
+			border-radius:${btnRadius}px;
+			border: ${btnBorder}px solid #ccc;
+			
+		}
+		.${uniqueId} .bdt-action a{
+			width:${btnFontSizeDesk}${btnUnit};
+			border-radius:${btnRadius}px;
+			border: ${btnBorder}px solid #ccc;
+		}
 		${presetStyles}
 	`;
 	const tabStyles = `
-	    ${presetStyles}
+	.${uniqueId} .bdt-button-wrap{
+		text-align: ${btnAlign};
+		
+	}
+	.${uniqueId} .bdt-action span{
+		width:${btnFontSizeTab}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+		
+	}
+	.${uniqueId} .bdt-action a{
+		width:${btnFontSizeTab}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	}
+		${presetStyles}
 	`;
 	const mobStyles = `
-	    ${presetStyles}
+	.${uniqueId} .bdt-button-wrap{
+		text-align: ${btnAlign};
+	}
+	.${uniqueId} .bdt-action span{
+		width:${btnFontSizeMob}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	.${uniqueId} .bdt-action a{
+		width:${btnFontSizeMob}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	${presetStyles}
+	
 	`;
 
 	/**
@@ -229,13 +304,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
-	const {
-		[`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
-		[`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
-		[`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
-		[`${BUTTON_FONTSIZE}Unit`]: btnUnit,
-	} = attributes;
-	
+   console.log(btnBorder);
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
@@ -248,7 +317,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			
 				<div className="container">
 				<div className="bdt-button-wrap">
-			 	<div className="bdt-link-btn bdt-hov">	
+			 	<div className="bdt-link-btn bdt-action">	
 						<RichText
 							className='bdt-button'
 							tagName="span"

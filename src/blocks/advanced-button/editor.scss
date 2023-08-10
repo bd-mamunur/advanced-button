@@ -5,3 +5,42 @@
 .wp-block-bdt-advanced-button {
 	
 }
+
+// inspector control
+
+.res-btn {
+	button.components-button {
+		margin: 0 2px;
+		span.dashicon {
+			font-size: 15px;
+			width: 15px;
+			height: 15px;
+		}
+	}
+}
+
+.components-button-group.units-wrapper {
+	button.components-button {
+		font-size: 10px;
+		width: 30px;
+		height: 25px;
+	}
+}
+
+.block-editor-link-control {
+	min-width: 0px !important;
+	.block-editor-link-control__field {
+		margin: 0px -1px 24px -2px !important;
+	}
+	.block-editor-link-control__search-submit.has-icon {
+		margin-right: -13px;
+	}
+}
+
+.components-base-control__field {
+	input#url-input-control-0 {
+		margin: 7px !important;
+		padding: 3px 13px 5px 13px !important;
+	}
+}
+

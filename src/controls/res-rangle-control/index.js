@@ -3,6 +3,8 @@ import {
 	RangeControl,
 	Flex,
 	FlexItem,
+	ButtonGroup,
+	Button,
 } from '@wordpress/components';
 import ResBtn from '../res-btn';
 
@@ -24,6 +26,7 @@ const ResRangleControl = ({
 		[`${controlName}DeskRange`]: deskRange,
 		[`${controlName}TabRange`]: tabRange,
 		[`${controlName}MobRange`]: mobRange,
+		[`${controlName}Unit`]: selectedUnit,
 	} = attributes;
 
 	if (!units) units = units || ['px', '%'];
@@ -41,19 +44,29 @@ const ResRangleControl = ({
 				</FlexItem>
 				<FlexItem>
 					{!noUnits && (
-						<div className="units-wrapper">
+						<ButtonGroup className="units-wrapper">
 							{units &&
 								units.map((unit, index) => {
 									return (
-										<div
-											className="single-unit"
+										<Button
 											key={index}
+											variant={
+												selectedUnit === unit
+													? 'primary'
+													: 'secondary'
+											}
+											onClick={() =>
+												setAttributes({
+													[`${controlName}Unit`]:
+														unit,
+												})
+											}
 										>
 											{unit}
-										</div>
+										</Button>
 									);
 								})}
-						</div>
+						</ButtonGroup>
 					)}
 				</FlexItem>
 			</Flex>
@@ -95,7 +108,7 @@ const ResRangleControl = ({
 									[`${controlName}MobRange`]: value,
 								})
 							}
-							min={min} 
+							min={min}
 							max={max}
 						/>
 					</div>

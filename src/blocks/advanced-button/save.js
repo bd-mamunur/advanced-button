@@ -1,7 +1,7 @@
 import { useBlockProps,RichText} from '@wordpress/block-editor';
 
 export default function save({ attributes }) {
-	const { uniqueId, btnText } = attributes;
+	const { uniqueId, btnText,btnLinkObj } = attributes;
 	return (
 		<div
 			{...useBlockProps.save({
@@ -15,8 +15,23 @@ export default function save({ attributes }) {
 			(
 			<div className="container">
 				<div className="bdt-button-wrap">
-				<div className="bdt-link-btn">
-					<a href="www.facebook.com"  target='_blank' rel='noopener'>
+				<div className="bdt-link-btn bdt-action">
+					<a href={
+								btnLinkObj &&
+								btnLinkObj.url &&
+								btnLinkObj.url
+							}
+							target={
+									btnLinkObj &&
+									btnLinkObj.openInNewTab &&
+												'_blank'
+									}
+							rel={
+									btnLinkObj &&
+									btnLinkObj.openInNewTab
+									? 'noopener noreferrer'
+									: 'noopener'
+								}>
 						<RichText.Content
 							value={ btnText }
 						/>

@@ -17,7 +17,6 @@ const {
   generateResRangleControlAttributes
 } = _generators__WEBPACK_IMPORTED_MODULE_1__;
 const {
-  GRID_COLUMNS,
   BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_0__;
 const attributes = {
@@ -60,14 +59,6 @@ const attributes = {
     default: '#fff'
   },
   ...generateResRangleControlAttributes({
-    controlName: GRID_COLUMNS,
-    defaults: {
-      [`${GRID_COLUMNS}DeskRange`]: 3,
-      [`${GRID_COLUMNS}TabRange`]: 2,
-      [`${GRID_COLUMNS}MobRange`]: 1
-    }
-  }),
-  ...generateResRangleControlAttributes({
     controlName: BUTTON_FONTSIZE,
     defaults: {
       [`${BUTTON_FONTSIZE}DeskRange`]: 14,
@@ -89,10 +80,8 @@ const attributes = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "GRID_COLUMNS": function() { return /* binding */ GRID_COLUMNS; },
 /* harmony export */   "BUTTON_FONTSIZE": function() { return /* binding */ BUTTON_FONTSIZE; }
 /* harmony export */ });
-const GRID_COLUMNS = 'gridColumns';
 const BUTTON_FONTSIZE = 'buttonFontSize';
 
 /***/ }),
@@ -148,7 +137,11 @@ function Edit(_ref) {
     uniqueId,
     blockStyle,
     preset,
-    btnText
+    btnText,
+    btnRadius,
+    btnAlign,
+    btnBorder,
+    btnBorderColor
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -157,6 +150,12 @@ function Edit(_ref) {
       });
     }
   }, []);
+  const {
+    [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
+    [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
+    [`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
+    [`${BUTTON_FONTSIZE}Unit`]: btnUnit
+  } = attributes;
 
   /**
    * Presets Based Styles
@@ -166,23 +165,39 @@ function Edit(_ref) {
   switch (preset) {
     case 'style-1':
       presetStyles = `
-			.${uniqueId} .bdt-button{
-				border-radius: 4px;
-				background-color: green;
-				border: 0;
+			.${uniqueId} .bdt-link-btn span{
+				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
 				color: #fff;
 				cursor: pointer;
+				background-color: green;
 				display: inline-block;
 				font-size: 14px;
 				font-weight: 400;
 				line-height: 20px;
-				padding: 12px 40px;
+				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
 			 }
+			 .${uniqueId} .bdt-link-btn a{
+				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				box-sizing: border-box;
+				color: #fff;
+				cursor: pointer;
+				background-color: green;
+				display: inline-block;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 20px;
+				padding:18px 0;
+				text-align: center;
+				text-transform: none;
+				white-space: nowrap;
+				transition: .2s ease-in;
+			 }
+			
 			`;
       break;
     case 'style-2':
@@ -191,17 +206,19 @@ function Edit(_ref) {
 				background-color: #395ddf;
 				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-				padding: 12px 40px;
+			    padding:18px 0;
+				display: inline-block;
 				color:black;
-			
+				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
 				background-color: #395ddf;
 				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-				padding: 12px 40px;
+			    padding:18px 0;
+				display: inline-block;
 				color:black;
-			
+				text-align:center
 			 }
 			
 			
@@ -253,16 +270,20 @@ function Edit(_ref) {
 				background-color: green;
 				padding: 12px 40px;
 				border: 1px solid #266DB6;
+				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
+				text-align:center;
 			}
 			.${uniqueId} .bdt-link-btn a {
 				color: #000;
 				background-color: green;
 				padding: 12px 40px;
 				border: 1px solid #266DB6;
+				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
+				text-align:center;
 			}
 			  
 			.${uniqueId} .bdt-link-btn span:hover{
@@ -326,13 +347,57 @@ function Edit(_ref) {
       '';
   }
   const deskStyles = `
+		.${uniqueId} .bdt-button-wrap{
+				text-align: ${btnAlign};
+			}
+ 	    .${uniqueId} .bdt-action span{
+			width:${btnFontSizeDesk}${btnUnit};
+			border-radius:${btnRadius}px;
+			border: ${btnBorder}px solid #ccc;
+			
+		}
+		.${uniqueId} .bdt-action a{
+			width:${btnFontSizeDesk}${btnUnit};
+			border-radius:${btnRadius}px;
+			border: ${btnBorder}px solid #ccc;
+		}
 		${presetStyles}
 	`;
   const tabStyles = `
-	    ${presetStyles}
+	.${uniqueId} .bdt-button-wrap{
+		text-align: ${btnAlign};
+		
+	}
+	.${uniqueId} .bdt-action span{
+		width:${btnFontSizeTab}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+		
+	}
+	.${uniqueId} .bdt-action a{
+		width:${btnFontSizeTab}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	}
+		${presetStyles}
 	`;
   const mobStyles = `
-	    ${presetStyles}
+	.${uniqueId} .bdt-button-wrap{
+		text-align: ${btnAlign};
+	}
+	.${uniqueId} .bdt-action span{
+		width:${btnFontSizeMob}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	.${uniqueId} .bdt-action a{
+		width:${btnFontSizeMob}${btnUnit};
+		border-radius:${btnRadius}px;
+		
+	}
+	${presetStyles}
+	
 	`;
 
   /**
@@ -354,12 +419,7 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
-  const {
-    [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
-    [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
-    [`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
-    [`${BUTTON_FONTSIZE}Unit`]: btnUnit
-  } = attributes;
+  console.log(btnBorder);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -370,7 +430,7 @@ function Edit(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-button-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bdt-link-btn bdt-hov"
+    className: "bdt-link-btn bdt-action"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "bdt-button",
     tagName: "span",
@@ -498,8 +558,15 @@ const Inspector = _ref => {
     setAttributes,
     objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
+  const {
+    [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
+    [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
+    [`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
+    [`${BUTTON_FONTSIZE}Unit`]: btnSelect
+  } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button')
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-icon-box'),
+    initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('preset', 'advanced-button'),
     value: preset,
@@ -518,19 +585,7 @@ const Inspector = _ref => {
         preset: presetV
       });
     }
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Column Settings', 'advanced-button')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Grid Columns', 'advanced-button'),
-    controlName: GRID_COLUMNS,
-    objAttrs: objAttrs,
-    noUnits: false,
-    min: 1,
-    max: 4
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-icon-box'),
-    initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Label', 'advanced-icon-box'),
     value: btnText,
     onChange: v => setAttributes({
@@ -556,7 +611,7 @@ const Inspector = _ref => {
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
     noUnits: false,
-    max: 50,
+    max: 100,
     min: 5
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Radius', 'advanced-icon-box'),
@@ -624,7 +679,8 @@ function save(_ref) {
   } = _ref;
   const {
     uniqueId,
-    btnText
+    btnText,
+    btnLinkObj
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
     className: `${uniqueId}`
@@ -633,11 +689,11 @@ function save(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-button-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bdt-link-btn"
+    className: "bdt-link-btn bdt-action"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "www.facebook.com",
-    target: "_blank",
-    rel: "noopener"
+    href: btnLinkObj && btnLinkObj.url && btnLinkObj.url,
+    target: btnLinkObj && btnLinkObj.openInNewTab && '_blank',
+    rel: btnLinkObj && btnLinkObj.openInNewTab ? 'noopener noreferrer' : 'noopener'
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     value: btnText
   }))))));
@@ -890,7 +946,8 @@ const ResRangleControl = _ref => {
   const {
     [`${controlName}DeskRange`]: deskRange,
     [`${controlName}TabRange`]: tabRange,
-    [`${controlName}MobRange`]: mobRange
+    [`${controlName}MobRange`]: mobRange,
+    [`${controlName}Unit`]: selectedUnit
   } = attributes;
   if (!units) units = units || ['px', '%'];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -903,12 +960,15 @@ const ResRangleControl = _ref => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_res_btn__WEBPACK_IMPORTED_MODULE_2__["default"], {
     resMode: resMode,
     setAttributes: setAttributes
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, !noUnits && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, !noUnits && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ButtonGroup, {
     className: "units-wrapper"
   }, units && units.map((unit, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "single-unit",
-      key: index
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      key: index,
+      variant: selectedUnit === unit ? 'primary' : 'secondary',
+      onClick: () => setAttributes({
+        [`${controlName}Unit`]: unit
+      })
     }, unit);
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "res-controls"
@@ -963,7 +1023,8 @@ const generateResRangleControlAttributes = _ref => {
   const {
     [`${controlName}DeskRange`]: deskRange,
     [`${controlName}TabRange`]: tabRange,
-    [`${controlName}MobRange`]: mobRange
+    [`${controlName}MobRange`]: mobRange,
+    [`${controlName}Unit`]: unit = 'px'
   } = defaults;
   return {
     [`${controlName}DeskRange`]: {
@@ -977,6 +1038,10 @@ const generateResRangleControlAttributes = _ref => {
     [`${controlName}MobRange`]: {
       type: 'number',
       default: mobRange
+    },
+    [`${controlName}Unit`]: {
+      type: 'string',
+      default: unit
     }
   };
 };

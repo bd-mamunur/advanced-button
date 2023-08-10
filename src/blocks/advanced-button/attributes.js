@@ -3,7 +3,7 @@ import * as generators from '../../generators';
 
 const { generateResRangleControlAttributes } = generators;
 
-const { GRID_COLUMNS,BUTTON_FONTSIZE } = constants;
+const {BUTTON_FONTSIZE } = constants;
 
 const attributes = {
 	uniqueId: {
@@ -44,15 +44,7 @@ const attributes = {
 		type: 'string',
 		default: '#fff',
 	},
-
-	...generateResRangleControlAttributes({
-		controlName: GRID_COLUMNS,
-		defaults: {
-			[`${GRID_COLUMNS}DeskRange`]: 3,
-			[`${GRID_COLUMNS}TabRange`]: 2,
-			[`${GRID_COLUMNS}MobRange`]: 1,
-		},
-	}),
+	
 	...generateResRangleControlAttributes({
 		controlName: BUTTON_FONTSIZE,
 		defaults: {
