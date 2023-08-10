@@ -376,9 +376,7 @@ function Edit(_ref) {
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnFontSizeTab}${btnUnit};
-		border-radius:${btnRadius}px;
-		
-	}
+		border-radius:${btnRadius}px;	
 	}
 		${presetStyles}
 	`;
@@ -389,7 +387,7 @@ function Edit(_ref) {
 	.${uniqueId} .bdt-action span{
 		width:${btnFontSizeMob}${btnUnit};
 		border-radius:${btnRadius}px;
-		
+
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnFontSizeMob}${btnUnit};
@@ -419,7 +417,6 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
-  console.log(btnBorder);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -523,7 +520,6 @@ const {
   ColorControl
 } = _controls__WEBPACK_IMPORTED_MODULE_5__;
 const {
-  GRID_COLUMNS,
   BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
 
@@ -558,14 +554,8 @@ const Inspector = _ref => {
     setAttributes,
     objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
-  const {
-    [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
-    [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
-    [`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
-    [`${BUTTON_FONTSIZE}Unit`]: btnSelect
-  } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-icon-box'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('preset', 'advanced-button'),
@@ -586,13 +576,13 @@ const Inspector = _ref => {
       });
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Label', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Label', 'advanced-button'),
     value: btnText,
     onChange: v => setAttributes({
       btnText: v
     })
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalLinkControl, {
-    searchInputPlaceholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link Here..', 'advanced-icon-box'),
+    searchInputPlaceholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link Here..', 'advanced-button'),
     value: btnLinkObj,
     settings: [{
       id: 'openInNewTab',
@@ -607,14 +597,14 @@ const Inspector = _ref => {
     }),
     variant: "primary"
   }, "Clear"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Font Size', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
     noUnits: false,
     max: 100,
     min: 5
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Radius', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Radius', 'advanced-button'),
     value: btnRadius,
     onChange: btnValue => setAttributes({
       btnRadius: btnValue
@@ -622,14 +612,14 @@ const Inspector = _ref => {
     min: 1,
     max: 100
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(AlignmentControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Alignment', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Alignment', 'advanced-button'),
     value: btnAlign,
     onChange: value => setAttributes({
       btnAlign: value
     }),
     options: alignIconOption
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'advanced-button'),
     value: btnBorder,
     onChange: border => setAttributes({
       btnBorder: border
@@ -637,17 +627,17 @@ const Inspector = _ref => {
     min: 0,
     max: 10
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border color', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border color', 'advanced-button'),
     color: btnBorderColor,
     colorName: "btnBorderColor",
     onChange: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'advanced-button'),
     color: btnColor,
     colorName: "btnColor",
     onChange: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'advanced-icon-box'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'advanced-button'),
     color: btnBgColor,
     colorName: "btnBgColor",
     onChange: setAttributes

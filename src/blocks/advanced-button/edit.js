@@ -262,9 +262,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnFontSizeTab}${btnUnit};
-		border-radius:${btnRadius}px;
-		
-	}
+		border-radius:${btnRadius}px;	
 	}
 		${presetStyles}
 	`;
@@ -275,7 +273,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	.${uniqueId} .bdt-action span{
 		width:${btnFontSizeMob}${btnUnit};
 		border-radius:${btnRadius}px;
-		
+
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnFontSizeMob}${btnUnit};
@@ -304,7 +302,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
-   console.log(btnBorder);
+
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>
