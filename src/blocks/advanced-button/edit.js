@@ -50,7 +50,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		case 'style-1':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
-				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
 				color: #fff;
 				cursor: pointer;
@@ -66,7 +66,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				transition: .2s ease-in;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
-				border:${btnBorder}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
 				color: #fff;
 				cursor: pointer;
@@ -87,8 +87,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		case 'style-2':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: #395ddf;
-				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 			    padding:18px 0;
 				display: inline-block;
@@ -96,8 +96,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: #395ddf;
-				border: 1px solid #395ddf;
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 			    padding:18px 0;
 				display: inline-block;
@@ -150,20 +150,20 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		case 'style-3':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span {
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: #000;
 				background-color: green;
 				padding: 12px 40px;
-				border: 1px solid #266DB6;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
 				text-align:center;
 			}
 			.${uniqueId} .bdt-link-btn a {
+				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: #000;
 				background-color: green;
 				padding: 12px 40px;
-				border: 1px solid #266DB6;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
@@ -239,13 +239,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
  	    .${uniqueId} .bdt-action span{
 			width:${btnFontSizeDesk}${btnUnit};
 			border-radius:${btnRadius}px;
-			border: ${btnBorder}px solid #ccc;
+			
 			
 		}
 		.${uniqueId} .bdt-action a{
 			width:${btnFontSizeDesk}${btnUnit};
 			border-radius:${btnRadius}px;
-			border: ${btnBorder}px solid #ccc;
+			
 		}
 		${presetStyles}
 	`;
@@ -302,7 +302,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
-
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>

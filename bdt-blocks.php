@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Final Class BDT Blocks
  */
 
-final class BDT_BLOCKS_CLASS {
+final class BDT_BUTTON_BLOCKS_CLASS {
 	
 	private static $instance;
 
@@ -45,9 +45,9 @@ final class BDT_BLOCKS_CLASS {
 	public function __construct(){
 		$this->define_constants();
 
-		if ( !version_compare( BDT_WP_VERSION, '5.8', '>=' ) ){
+		if ( !version_compare( BDT_AB_WP_VERSION, '5.8', '>=' ) ){
             add_action( 'admin_notices', [ $this, 'check_wp_version' ] );
-        } elseif ( !version_compare( BDT_PHP_VERSION, '5.6', '>=' ) ){
+        } elseif ( !version_compare( BDT_AB_PHP_VERSION, '5.6', '>=' ) ){
             add_action( 'admin_notices', [ $this, 'check_php_version' ] );
         } elseif ( !function_exists( 'register_block_type' ) ){
             add_action( 'admin_notices', [ $this, 'gutenberg_unavailable_notice' ] );
@@ -56,9 +56,9 @@ final class BDT_BLOCKS_CLASS {
         }
 		
         // activation hook
-        register_activation_hook( BDT_FILE, [ $this, 'blocks_activation_hook' ] );
+        register_activation_hook( BDT_AB_FILE, [ $this, 'blocks_activation_hook' ] );
         // deactivation hook
-        register_deactivation_hook( BDT_FILE, [ $this, 'blocks_deactivation_hook' ] );
+        register_deactivation_hook( BDT_AB_FILE, [ $this, 'blocks_deactivation_hook' ] );
 
 	}
 
@@ -66,15 +66,15 @@ final class BDT_BLOCKS_CLASS {
      * Define Constants
      */
     public function define_constants(){
-        define('BDT_NAME', 'advanced-button');
-		define('BDT_SLUG', 'advanced-button');
-        define('BDT_VERSION', '1.0.0');
-        define('BDT_FILE', __FILE__);
-		define('BDT_DIR', __DIR__);
-        define('BDT_DIR_PATH', plugin_dir_path(__FILE__));
-        define('BDT_ADMIN_URL', plugin_dir_url(__FILE__));
-        define('BDT_WP_VERSION', (float) get_bloginfo('version'));
-        define('BDT_PHP_VERSION', (float) phpversion());
+        define('BDT_AB_NAME', 'advanced-button');
+		define('BDT_AB_SLUG', 'advanced-button');
+        define('BDT_AB_VERSION', '1.0.0');
+        define('BDT_AB_FILE', __FILE__);
+		define('BDT_AB_DIR', __DIR__);
+        define('BDT_AB_DIR_PATH', plugin_dir_path(__FILE__));
+        define('BDT_AB_ADMIN_URL', plugin_dir_url(__FILE__));
+        define('BDT_AB_WP_VERSION', (float) get_bloginfo('version'));
+        define('BDT_AB_PHP_VERSION', (float) phpversion());
     }
 
 	/**
@@ -148,16 +148,16 @@ final class BDT_BLOCKS_CLASS {
      * Include required files
      */
     public function includes(){
-        require_once BDT_DIR_PATH . 'includes/blocks-loader.php';
+        require_once BDT_AB_DIR_PATH . 'includes/blocks-loader.php';
     }
 }
 
 /**
  * Kickoff
 */
-function bdt_blocks(){
-	return BDT_BLOCKS_CLASS::instance();
+function bdt_button_blocks(){
+	return BDT_BUTTON_BLOCKS_CLASS::instance();
 }
 
 // start plugin
-bdt_blocks();
+bdt_button_blocks();

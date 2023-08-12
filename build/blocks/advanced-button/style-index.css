@@ -7,13 +7,21 @@
 .wp-block-bdt-advanced-button a {
   text-decoration: none;
 }
-
-/* CSS */
-/* primary button css here  */
-/* button number 2 css here  */
-/* Button number 3 css here  */
-/* Button number 4  */
-/* Button number 5  */
+.wp-block-bdt-advanced-button .bdt-link-btn span, .wp-block-bdt-advanced-button a {
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  background-color: green;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 18px 0;
+  text-align: center;
+  text-transform: none;
+  white-space: nowrap;
+  transition: 0.2s ease-in;
+}
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/controls/res-rangle-control/style.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
