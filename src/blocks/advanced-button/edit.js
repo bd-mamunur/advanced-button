@@ -24,7 +24,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		btnRadius,
 		btnAlign,
 		btnBorder,
-		btnBorderColor
+		btnBorderColor,
+		btnBgColor,
+		btnColor,
 	} = attributes;
 
 	useEffect(() => {
@@ -52,9 +54,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			.${uniqueId} .bdt-link-btn span{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
-				color: #fff;
+				color: ${btnColor};
 				cursor: pointer;
-				background-color: green;
+				background-color: ${btnBgColor};
 				display: inline-block;
 				font-size: 14px;
 				font-weight: 400;
@@ -68,9 +70,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			 .${uniqueId} .bdt-link-btn a{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				box-sizing: border-box;
-				color: #fff;
+				color: ${btnColor};
 				cursor: pointer;
-				background-color: green;
+				background-color: ${btnBgColor};
 				display: inline-block;
 				font-size: 14px;
 				font-weight: 400;
@@ -88,32 +90,32 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: #395ddf;
+				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 			    padding:18px 0;
 				display: inline-block;
-				color:black;
+				color:${btnColor};
 				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: #395ddf;
+				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 			    padding:18px 0;
 				display: inline-block;
-				color:black;
+				color:${btnColor};
 				text-align:center
 			 }
 			
 			
 			 .${uniqueId} .bdt-link-btn span:hover {
-				 	background-color: red;
+				 	background-color: gray;
 				 	text-decoration: none;
 				 	box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				 	border: 1px solid #395ddf;
 				 }
 			.${uniqueId} .bdt-link-btn a:hover {
-					background-color: red;
+					background-color: gray;
 					text-decoration: none;
 					box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 					border: 1px solid #395ddf;
@@ -151,9 +153,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: #000;
-				background-color: green;
-				padding: 12px 40px;
+				color: ${btnColor};
+				background-color: ${btnBgColor};
+				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
@@ -161,9 +163,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			}
 			.${uniqueId} .bdt-link-btn a {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: #000;
-				background-color: green;
-				padding: 12px 40px;
+				color: ${btnColor};
+				background-color: ${btnBgColor};
+				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
