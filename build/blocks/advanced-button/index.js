@@ -61,8 +61,8 @@ const attributes = {
     controlName: BUTTON_FONTSIZE,
     defaults: {
       [`${BUTTON_FONTSIZE}DeskRange`]: 70,
-      [`${BUTTON_FONTSIZE}TabRange`]: 12,
-      [`${BUTTON_FONTSIZE}MobRange`]: 10,
+      [`${BUTTON_FONTSIZE}TabRange`]: 60,
+      [`${BUTTON_FONTSIZE}MobRange`]: 50,
       [`${BUTTON_FONTSIZE}Unit`]: 'px'
     }
   })

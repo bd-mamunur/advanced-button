@@ -5,12 +5,19 @@
 * Style Works for Editor Only
 */
 .res-btn button.components-button {
-  margin: 0 2px;
+  margin: 0 1px;
 }
 .res-btn button.components-button span.dashicon {
   font-size: 15px;
   width: 15px;
   height: 15px;
+}
+
+.res-btn .components-button.has-icon {
+  justify-content: center;
+  min-width: 13px;
+  padding: 3px;
+  height: 21px;
 }
 
 .components-button-group.units-wrapper button.components-button {
