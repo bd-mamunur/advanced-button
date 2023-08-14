@@ -53,7 +53,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	/**
 	 * Presets Based Styles
 	 */
-	 
+	 //padding:18px 0;
 	let presetStyles;
 	switch (preset) {
 		case 'style-1':
@@ -65,10 +65,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				cursor: pointer;
 				background-color: ${btnBgColor};
 				display: inline-block;
-				font-size: 14px;
 				font-weight: 400;
-				line-height: 20px;
-				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
@@ -82,15 +79,12 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				cursor: pointer;
 				background-color: ${btnBgColor};
 				display: inline-block;
-				font-size: 14px;
 				font-weight: 400;
-				line-height: 20px;
-				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
-				
+				white-space: wrap;
 			 }
 			
 			`;
@@ -101,7 +95,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-			    padding:18px 0;
 				display: inline-block;
 				color:${btnColor};
 				text-align:center;
@@ -110,10 +103,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-			    padding:18px 0;
 				display: inline-block;
 				color:${btnColor};
 				text-align:center
+				white-space: wrap;
 			 }
 			
 			
@@ -164,7 +157,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: ${btnColor};
 				background-color: ${btnBgColor};
-				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
@@ -174,11 +166,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: ${btnColor};
 				background-color: ${btnBgColor};
-				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
 				text-align:center;
+				white-space: wrap;
 			}
 			  
 			.${uniqueId} .bdt-link-btn span:hover{
@@ -251,13 +243,14 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			width:${btnSizeDesk}${btnUnit};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			line-height: 1.2;
+			line-height: 2.2;
 		}
 		.${uniqueId} .bdt-action a{
 			width:${btnSizeDesk}${btnUnit};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			line-height: 1.2;
+			line-height: 2.2;
+			
 		}
 		${presetStyles}
 	`;
@@ -269,13 +262,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		width:${btnSizeTab}${btnUnit};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnSizeTab}${btnUnit};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;	
+		line-height: 2.2;
 	}
 		${presetStyles}
 	`;
@@ -287,13 +280,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		width:${btnSizeMob}${btnUnit};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnSizeMob}${btnUnit};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	${presetStyles}
 	
@@ -317,7 +310,6 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
-	console.log(btnFontSizeDesk);
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>

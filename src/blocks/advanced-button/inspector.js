@@ -35,7 +35,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnBgColor
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
-   
 	return (
 	
 			<InspectorControls>
@@ -77,6 +76,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 					
 					
 				/>
+				
 				<Button
 					onClick={() => setAttributes({ btnLinkObj: null })}
 					variant="primary"

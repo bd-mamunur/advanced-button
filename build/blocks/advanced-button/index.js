@@ -180,7 +180,7 @@ function Edit(_ref) {
   /**
    * Presets Based Styles
    */
-
+  //padding:18px 0;
   let presetStyles;
   switch (preset) {
     case 'style-1':
@@ -192,10 +192,7 @@ function Edit(_ref) {
 				cursor: pointer;
 				background-color: ${btnBgColor};
 				display: inline-block;
-				font-size: 14px;
 				font-weight: 400;
-				line-height: 20px;
-				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
@@ -209,15 +206,12 @@ function Edit(_ref) {
 				cursor: pointer;
 				background-color: ${btnBgColor};
 				display: inline-block;
-				font-size: 14px;
 				font-weight: 400;
-				line-height: 20px;
-				padding:18px 0;
 				text-align: center;
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
-				
+				white-space: wrap;
 			 }
 			
 			`;
@@ -228,7 +222,6 @@ function Edit(_ref) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-			    padding:18px 0;
 				display: inline-block;
 				color:${btnColor};
 				text-align:center;
@@ -237,10 +230,10 @@ function Edit(_ref) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
-			    padding:18px 0;
 				display: inline-block;
 				color:${btnColor};
 				text-align:center
+				white-space: wrap;
 			 }
 			
 			
@@ -291,7 +284,6 @@ function Edit(_ref) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: ${btnColor};
 				background-color: ${btnBgColor};
-				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
@@ -301,11 +293,11 @@ function Edit(_ref) {
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
 				color: ${btnColor};
 				background-color: ${btnBgColor};
-				padding: 12px 0px;
 				display: inline-block;
 				position: relative;
 				touch-action: manipulation; 
 				text-align:center;
+				white-space: wrap;
 			}
 			  
 			.${uniqueId} .bdt-link-btn span:hover{
@@ -376,13 +368,14 @@ function Edit(_ref) {
 			width:${btnSizeDesk}${btnUnit};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			line-height: 1.2;
+			line-height: 2.2;
 		}
 		.${uniqueId} .bdt-action a{
 			width:${btnSizeDesk}${btnUnit};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			line-height: 1.2;
+			line-height: 2.2;
+			
 		}
 		${presetStyles}
 	`;
@@ -394,13 +387,13 @@ function Edit(_ref) {
 		width:${btnSizeTab}${btnUnit};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnSizeTab}${btnUnit};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;	
+		line-height: 2.2;
 	}
 		${presetStyles}
 	`;
@@ -412,13 +405,13 @@ function Edit(_ref) {
 		width:${btnSizeMob}${btnUnit};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	.${uniqueId} .bdt-action a{
 		width:${btnSizeMob}${btnUnit};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		line-height: 1.2;
+		line-height: 2.2;
 	}
 	${presetStyles}
 	
@@ -443,7 +436,6 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
-  console.log(btnFontSizeDesk);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -1227,7 +1219,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/advanced-button","version":"0.1.0","title":"Advanced Button","category":"advanced-button","description":"Simple advanced button block description.","supports":{"html":false,"anchor":true},"textdomain":"advanced-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"bdt/advanced-button","version":"0.1.0","title":"Advanced Button","category":"advanced-button","description":"Simple advanced button block description.","supports":{"html":false,"anchor":true,"align":true},"textdomain":"advanced-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

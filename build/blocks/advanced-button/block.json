@@ -7,7 +7,8 @@
   "description": "Simple advanced button block description.",
   "supports": {
     "html": false,
-    "anchor": true
+    "anchor": true,
+    "align": true
   },
   "textdomain": "advanced-button",
   "editorScript": "file:./index.js",
