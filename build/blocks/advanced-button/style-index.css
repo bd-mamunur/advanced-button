@@ -4,6 +4,10 @@
 /*
 * Style Works for both Editor and Frontend
 */
+.wp-block-bdt-advanced-button * {
+  margin: 0;
+  padding: 0;
+}
 .wp-block-bdt-advanced-button a {
   text-decoration: none;
 }

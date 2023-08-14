@@ -3,7 +3,7 @@ import * as generators from '../../generators';
 
 const { generateResRangleControlAttributes } = generators;
 
-const {BUTTON_FONTSIZE } = constants;
+const {BUTTON_FONTSIZE,BUTTON_SIZE } = constants;
 
 const attributes = {
 	uniqueId: {
@@ -45,11 +45,20 @@ const attributes = {
 	},
 	
 	...generateResRangleControlAttributes({
+		controlName: BUTTON_SIZE,
+		defaults: {
+			[`${BUTTON_SIZE}DeskRange`]: 70,
+			[`${BUTTON_SIZE}TabRange`]: 60,
+			[`${BUTTON_SIZE}MobRange`]: 50,
+			[`${BUTTON_SIZE}Unit`]: 'px',
+		},
+	}),
+	...generateResRangleControlAttributes({
 		controlName: BUTTON_FONTSIZE,
 		defaults: {
-			[`${BUTTON_FONTSIZE}DeskRange`]: 70,
-			[`${BUTTON_FONTSIZE}TabRange`]: 60,
-			[`${BUTTON_FONTSIZE}MobRange`]: 50,
+			[`${BUTTON_FONTSIZE}DeskRange`]: 18,
+			[`${BUTTON_FONTSIZE}TabRange`]: 12,
+			[`${BUTTON_FONTSIZE}MobRange`]: 10,
 			[`${BUTTON_FONTSIZE}Unit`]: 'px',
 		},
 	}),

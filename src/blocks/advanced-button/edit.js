@@ -4,7 +4,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 const { Fragment, useEffect } = wp.element;
 import * as Constants from './constants';
-const {  BUTTON_FONTSIZE} =Constants;
+const {  BUTTON_FONTSIZE,BUTTON_SIZE} =Constants;
 
 // editor style
 import './editor.scss';
@@ -36,10 +36,17 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	}, []);
 
 	const {
+		[`${BUTTON_SIZE}DeskRange`]: btnSizeDesk,
+		[`${BUTTON_SIZE}TabRange`]: btnSizeTab,
+		[`${BUTTON_SIZE}MobRange`]: btnSizeMob,
+		[`${BUTTON_SIZE}Unit`]: btnUnit,
+	} = attributes;
+
+	const {
 		[`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
 		[`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
 		[`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
-		[`${BUTTON_FONTSIZE}Unit`]: btnUnit,
+		[`${BUTTON_FONTSIZE}Unit`]: btnFontUnit,
 	} = attributes;
 	
 
@@ -66,6 +73,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
+			
 			 }
 			 .${uniqueId} .bdt-link-btn a{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
@@ -82,6 +90,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
+				
 			 }
 			
 			`;
@@ -237,34 +246,36 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	const deskStyles = `
 		.${uniqueId} .bdt-button-wrap{
 				text-align: ${btnAlign};
-			}
+		}
  	    .${uniqueId} .bdt-action span{
-			width:${btnFontSizeDesk}${btnUnit};
+			width:${btnSizeDesk}${btnUnit};
+			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			
-			
+			line-height: 1.2;
 		}
 		.${uniqueId} .bdt-action a{
-			width:${btnFontSizeDesk}${btnUnit};
+			width:${btnSizeDesk}${btnUnit};
+			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			
+			line-height: 1.2;
 		}
 		${presetStyles}
 	`;
 	const tabStyles = `
 	.${uniqueId} .bdt-button-wrap{
-		text-align: ${btnAlign};
-		
+		text-align: ${btnAlign};	
 	}
 	.${uniqueId} .bdt-action span{
-		width:${btnFontSizeTab}${btnUnit};
+		width:${btnSizeTab}${btnUnit};
+		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		
-		
+		line-height: 1.2;
 	}
 	.${uniqueId} .bdt-action a{
-		width:${btnFontSizeTab}${btnUnit};
-		border-radius:${btnRadius}px;	
+		width:${btnSizeTab}${btnUnit};
+		font-size:${btnFontSizeTab}${btnFontUnit};
+		border-radius:${btnRadius}px;
+		line-height: 1.2;	
 	}
 		${presetStyles}
 	`;
@@ -273,14 +284,16 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		text-align: ${btnAlign};
 	}
 	.${uniqueId} .bdt-action span{
-		width:${btnFontSizeMob}${btnUnit};
+		width:${btnSizeMob}${btnUnit};
+		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-
+		line-height: 1.2;
 	}
 	.${uniqueId} .bdt-action a{
-		width:${btnFontSizeMob}${btnUnit};
+		width:${btnSizeMob}${btnUnit};
+		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		
+		line-height: 1.2;
 	}
 	${presetStyles}
 	
@@ -304,6 +317,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
+	console.log(btnFontSizeDesk);
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>

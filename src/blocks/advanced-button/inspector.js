@@ -12,7 +12,7 @@ import * as Constants from './constants';
 import * as Controls from '../../controls';
 
 const { ResRangleControl,AlignmentControl,ColorControl } = Controls;
-const {  BUTTON_FONTSIZE } = Constants;
+const { BUTTON_FONTSIZE,BUTTON_SIZE } = Constants;
 
 import objAttributes from './attributes';
 
@@ -35,7 +35,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnBgColor
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
-
+   
 	return (
 	
 			<InspectorControls>
@@ -87,6 +87,15 @@ const Inspector = ({ attributes, setAttributes }) => {
 				<CardDivider />
 				<ResRangleControl
 					label={__('Button Size', 'advanced-button')}
+					controlName={BUTTON_SIZE}
+					objAttrs={objAttrs}
+					noUnits={false}
+					max={100}
+					min={5}
+				/>
+				<CardDivider />
+				<ResRangleControl
+					label={__('Button Font Size', 'advanced-button')}
 					controlName={BUTTON_FONTSIZE}
 					objAttrs={objAttrs}
 					noUnits={false}

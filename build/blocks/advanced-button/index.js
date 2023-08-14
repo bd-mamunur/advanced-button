@@ -17,7 +17,8 @@ const {
   generateResRangleControlAttributes
 } = _generators__WEBPACK_IMPORTED_MODULE_1__;
 const {
-  BUTTON_FONTSIZE
+  BUTTON_FONTSIZE,
+  BUTTON_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_0__;
 const attributes = {
   uniqueId: {
@@ -58,11 +59,20 @@ const attributes = {
     default: '#fff'
   },
   ...generateResRangleControlAttributes({
+    controlName: BUTTON_SIZE,
+    defaults: {
+      [`${BUTTON_SIZE}DeskRange`]: 70,
+      [`${BUTTON_SIZE}TabRange`]: 60,
+      [`${BUTTON_SIZE}MobRange`]: 50,
+      [`${BUTTON_SIZE}Unit`]: 'px'
+    }
+  }),
+  ...generateResRangleControlAttributes({
     controlName: BUTTON_FONTSIZE,
     defaults: {
-      [`${BUTTON_FONTSIZE}DeskRange`]: 70,
-      [`${BUTTON_FONTSIZE}TabRange`]: 60,
-      [`${BUTTON_FONTSIZE}MobRange`]: 50,
+      [`${BUTTON_FONTSIZE}DeskRange`]: 18,
+      [`${BUTTON_FONTSIZE}TabRange`]: 12,
+      [`${BUTTON_FONTSIZE}MobRange`]: 10,
       [`${BUTTON_FONTSIZE}Unit`]: 'px'
     }
   })
@@ -79,9 +89,11 @@ const attributes = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BUTTON_FONTSIZE": function() { return /* binding */ BUTTON_FONTSIZE; }
+/* harmony export */   "BUTTON_FONTSIZE": function() { return /* binding */ BUTTON_FONTSIZE; },
+/* harmony export */   "BUTTON_SIZE": function() { return /* binding */ BUTTON_SIZE; }
 /* harmony export */ });
 const BUTTON_FONTSIZE = 'buttonFontSize';
+const BUTTON_SIZE = 'buttonSize';
 
 /***/ }),
 
@@ -115,7 +127,8 @@ const {
 } = wp.element;
 
 const {
-  BUTTON_FONTSIZE
+  BUTTON_FONTSIZE,
+  BUTTON_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_3__;
 
 // editor style
@@ -152,10 +165,16 @@ function Edit(_ref) {
     }
   }, []);
   const {
+    [`${BUTTON_SIZE}DeskRange`]: btnSizeDesk,
+    [`${BUTTON_SIZE}TabRange`]: btnSizeTab,
+    [`${BUTTON_SIZE}MobRange`]: btnSizeMob,
+    [`${BUTTON_SIZE}Unit`]: btnUnit
+  } = attributes;
+  const {
     [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
     [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
     [`${BUTTON_FONTSIZE}MobRange`]: btnFontSizeMob,
-    [`${BUTTON_FONTSIZE}Unit`]: btnUnit
+    [`${BUTTON_FONTSIZE}Unit`]: btnFontUnit
   } = attributes;
 
   /**
@@ -181,6 +200,7 @@ function Edit(_ref) {
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
+			
 			 }
 			 .${uniqueId} .bdt-link-btn a{
 				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
@@ -197,6 +217,7 @@ function Edit(_ref) {
 				text-transform: none;
 				white-space: nowrap;
 				transition: .2s ease-in;
+				
 			 }
 			
 			`;
@@ -350,34 +371,36 @@ function Edit(_ref) {
   const deskStyles = `
 		.${uniqueId} .bdt-button-wrap{
 				text-align: ${btnAlign};
-			}
+		}
  	    .${uniqueId} .bdt-action span{
-			width:${btnFontSizeDesk}${btnUnit};
+			width:${btnSizeDesk}${btnUnit};
+			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			
-			
+			line-height: 1.2;
 		}
 		.${uniqueId} .bdt-action a{
-			width:${btnFontSizeDesk}${btnUnit};
+			width:${btnSizeDesk}${btnUnit};
+			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
-			
+			line-height: 1.2;
 		}
 		${presetStyles}
 	`;
   const tabStyles = `
 	.${uniqueId} .bdt-button-wrap{
-		text-align: ${btnAlign};
-		
+		text-align: ${btnAlign};	
 	}
 	.${uniqueId} .bdt-action span{
-		width:${btnFontSizeTab}${btnUnit};
+		width:${btnSizeTab}${btnUnit};
+		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		
-		
+		line-height: 1.2;
 	}
 	.${uniqueId} .bdt-action a{
-		width:${btnFontSizeTab}${btnUnit};
-		border-radius:${btnRadius}px;	
+		width:${btnSizeTab}${btnUnit};
+		font-size:${btnFontSizeTab}${btnFontUnit};
+		border-radius:${btnRadius}px;
+		line-height: 1.2;	
 	}
 		${presetStyles}
 	`;
@@ -386,14 +409,16 @@ function Edit(_ref) {
 		text-align: ${btnAlign};
 	}
 	.${uniqueId} .bdt-action span{
-		width:${btnFontSizeMob}${btnUnit};
+		width:${btnSizeMob}${btnUnit};
+		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-
+		line-height: 1.2;
 	}
 	.${uniqueId} .bdt-action a{
-		width:${btnFontSizeMob}${btnUnit};
+		width:${btnSizeMob}${btnUnit};
+		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
-		
+		line-height: 1.2;
 	}
 	${presetStyles}
 	
@@ -418,6 +443,7 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
+  console.log(btnFontSizeDesk);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -521,7 +547,8 @@ const {
   ColorControl
 } = _controls__WEBPACK_IMPORTED_MODULE_5__;
 const {
-  BUTTON_FONTSIZE
+  BUTTON_FONTSIZE,
+  BUTTON_SIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
 
 const alignIconOption = [{
@@ -599,6 +626,13 @@ const Inspector = _ref => {
     variant: "primary"
   }, "Clear"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
+    controlName: BUTTON_SIZE,
+    objAttrs: objAttrs,
+    noUnits: false,
+    max: 100,
+    min: 5
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Font Size', 'advanced-button'),
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
     noUnits: false,
