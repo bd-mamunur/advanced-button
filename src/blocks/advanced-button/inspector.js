@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls,__experimentalLinkControl as LinkControl} from '@wordpress/block-editor';
-import { PanelBody,SelectControl,CardDivider,TextControl,Button,RangeControl, } from '@wordpress/components';
+import { PanelBody,SelectControl,CardDivider,TextControl,TabPanel,RangeControl,__experimentalBoxControl as BoxControl  } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -11,7 +11,7 @@ import { PanelBody,SelectControl,CardDivider,TextControl,Button,RangeControl, } 
 import * as Constants from './constants';
 import * as Controls from '../../controls';
 
-const { ResRangleControl,AlignmentControl,ColorControl } = Controls;
+const { ResRangleControl,AlignmentControl,ColorControl,TabPanelControl } = Controls;
 const { BUTTON_FONTSIZE,BUTTON_SIZE } = Constants;
 
 import objAttributes from './attributes';
@@ -30,19 +30,70 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnRadius,
 		btnAlign,
 		btnBorder,
+		btnborderStyle,
 		btnBorderColor,
 		btnColor,
-		btnBgColor
+		btnHoverColor,
+		btnBgColor,
+		btnbgHoverColor,
+		btnPadding 
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
+	console.log(btnPadding);
 	return (
 	
 			<InspectorControls>
+				    <TabPanel
+						className="my-tab-panel"
+						activeClass="active-tab"
+						
+						tabs={ [
+							{
+								name: 'tab1',
+								title: __('Design','advanced-button'),
+								className: 'tab-one adb-btn',
+							},
+							{
+								name: 'tab2',
+								title: __('Settings','advanced-button'),
+								className: 'tab-two adb-btn',
+							},
+						] }
+					>
+						{ ( tab ) =>{if(tab.name==='tab1'){
+								return (
+									<PanelBody title={__('Design', 'advanced-button')}
+									initialOpen={false}>
+										<ResRangleControl
+										label={__('Button Size', 'advanced-button')}
+										controlName={BUTTON_SIZE}
+										objAttrs={objAttrs}
+										noUnits={false}
+										max={100}
+										min={5}
+									/>
+								</PanelBody>
+								)
+						}else if(tab.name==="tab2"){
+							return (
+								<PanelBody title={__('Settings', 'advanced-button')}
+									initialOpen={false}>
+										<RangeControl
+										label={__('Border', 'advanced-button')}
+										value={btnBorder}
+										onChange={(border) => setAttributes({ btnBorder: border })}
+										min={0}
+										max={10}
+									/>
+							</PanelBody>
+							)
+						}} }
+					</TabPanel>
 				<PanelBody
 				title={__('Button', 'advanced-button')}
 				initialOpen={false}
 			>
-  
+
   				<SelectControl
 					label={__('preset','advanced-button')}
 					value={ preset }
@@ -77,14 +128,8 @@ const Inspector = ({ attributes, setAttributes }) => {
 					
 				/>
 				
-				<Button
-					onClick={() => setAttributes({ btnLinkObj: null })}
-					variant="primary"
-				>
-					Clear
-				</Button>
-
 				<CardDivider />
+				{/* button size remove */}
 				<ResRangleControl
 					label={__('Button Size', 'advanced-button')}
 					controlName={BUTTON_SIZE}
@@ -95,14 +140,19 @@ const Inspector = ({ attributes, setAttributes }) => {
 				/>
 				<CardDivider />
 				<ResRangleControl
-					label={__('Button Font Size', 'advanced-button')}
+					label={__('Font Size', 'advanced-button')}
 					controlName={BUTTON_FONTSIZE}
 					objAttrs={objAttrs}
 					noUnits={false}
 					max={100}
 					min={5}
 				/>
-
+				<BoxControl
+				    label={__('Button Padding','advanced-button')}
+					 values={btnPadding}
+					 onChange={ ( nextValues ) => setAttributes( {btnPadding:nextValues} ) }
+				/>
+				<CardDivider/>
 				<RangeControl
 					label={__('Button Radius', 'advanced-button')}
 					value={btnRadius}
@@ -131,6 +181,21 @@ const Inspector = ({ attributes, setAttributes }) => {
 					min={0}
 					max={10}
 				/>
+
+		 		<SelectControl
+					 label={__('Border Style','advanced-button')}
+			 		value={ btnborderStyle }
+			 		options={ [
+					 { label: 'Solid', value: 'solid' },
+					 { label: 'Dotted', value: 'dotted' },
+				 	 { label: 'Dashed', value: 'dashed' },
+					 {label:'Double', value:'double'},
+					 {label:'Groove', value:'groove'}
+			 		] }
+					 onChange={ ( borderStyle ) => { setAttributes( { btnborderStyle:borderStyle } ) } }
+				 />
+
+
 				<ColorControl
 					label={__('Border color', 'advanced-button')}
 					color={btnBorderColor}
@@ -138,17 +203,39 @@ const Inspector = ({ attributes, setAttributes }) => {
 					onChange={setAttributes}
 				/>
 				<CardDivider />
-				<ColorControl
-					label={__('Color', 'advanced-button')}
-					color={btnColor}
-					colorName="btnColor"
-					onChange={setAttributes}
-				 /> 
-			 <ColorControl
-					label={__('Background color', 'advanced-button')}
-					color={btnBgColor}
-					colorName="btnBgColor"
-					onChange={setAttributes}
+				<TabPanelControl  
+					normalComponent={<>
+					<ColorControl
+						label={__('Color', 'advanced-button')}
+						color={btnColor}
+						colorName="btnColor"
+						onChange={setAttributes}
+					 /> 
+					 <ColorControl
+					 label={__('Background color', 'advanced-button')}
+					 color={btnBgColor}
+					 colorName="btnBgColor"
+					 onChange={setAttributes}
+				 	/>
+				 	</>
+					}
+					hoverComponent={
+					<>
+					<ColorControl
+						label={__('Hover Color', 'advanced-button')}
+						color={btnHoverColor}
+						colorName="btnHoverColor"
+						onChange={setAttributes}
+					 /> 
+					 <ColorControl
+						label={__('Background Hover', 'advanced-button')}
+						color={btnbgHoverColor}
+						colorName="btnbgHoverColor"
+						onChange={setAttributes}
+					 />
+					 
+					 </>	
+					}  
 				/>
 			</PanelBody>
 				

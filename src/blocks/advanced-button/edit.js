@@ -24,9 +24,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		btnRadius,
 		btnAlign,
 		btnBorder,
+		btnborderStyle,
 		btnBorderColor,
 		btnBgColor,
+		btnbgHoverColor,
 		btnColor,
+		btnHoverColor,
+		btnPadding
 	} = attributes;
 
 	useEffect(() => {
@@ -53,36 +57,30 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	/**
 	 * Presets Based Styles
 	 */
-	 //padding:18px 0;
+
 	let presetStyles;
 	switch (preset) {
 		case 'style-1':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				
 				box-sizing: border-box;
-				color: ${btnColor};
 				cursor: pointer;
-				background-color: ${btnBgColor};
 				display: inline-block;
 				font-weight: 400;
 				text-align: center;
 				text-transform: none;
-				white-space: nowrap;
 				transition: .2s ease-in;
 			
 			 }
 			 .${uniqueId} .bdt-link-btn a{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+	
 				box-sizing: border-box;
-				color: ${btnColor};
 				cursor: pointer;
-				background-color: ${btnBgColor};
 				display: inline-block;
 				font-weight: 400;
 				text-align: center;
 				text-transform: none;
-				white-space: nowrap;
 				transition: .2s ease-in;
 				white-space: wrap;
 			 }
@@ -92,19 +90,13 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		case 'style-2':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				display: inline-block;
-				color:${btnColor};
 				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				display: inline-block;
-				color:${btnColor};
 				text-align:center
 				white-space: wrap;
 			 }
@@ -154,80 +146,37 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		case 'style-3':
 			presetStyles = `
 			.${uniqueId} .bdt-link-btn span {
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: ${btnColor};
-				background-color: ${btnBgColor};
 				display: inline-block;
-				position: relative;
-				touch-action: manipulation; 
+				transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+				margin: 0;
 				text-align:center;
+				
+
 			}
 			.${uniqueId} .bdt-link-btn a {
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: ${btnColor};
-				background-color: ${btnBgColor};
 				display: inline-block;
-				position: relative;
-				touch-action: manipulation; 
+				transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+				margin: 0; 
 				text-align:center;
 				white-space: wrap;
 			}
 			  
-			.${uniqueId} .bdt-link-btn span:hover{
-				outline: 0;
+			.${uniqueId} .bdt-link-btn span:disabled {
+				pointer-events: none;
 			}
-			.${uniqueId} .bdt-link-btn a:hover{
-				outline: 0;
-			}
-			.${uniqueId} .bdt-link-btn span:active {
-				outline: 0;
-			}
-			.${uniqueId} .bdt-link-btn a:active {
-				outline: 0;
-			}
-			  
-			.${uniqueId} .bdt-link-btn span:hover {
-				background-color: transparent;
-			}
-			.${uniqueId} .bdt-link-btn a:hover {
-				background-color: transparent;
-			}
-			  
-			.${uniqueId} .bdt-link-btn span:before {
-				background-color: #D5EDF6;
-				content: "";
-				height: calc(100% + 3px);
-				position: absolute;
-				right: -7px;
-				top: -9px;
-				transition: background-color 300ms ease-in;
-				width: 100%;
-				z-index: -1;
+			.${uniqueId} .bdt-link-btn a:disabled {
+				pointer-events: none;
 			}
 
-			.${uniqueId} .bdt-link-btn a:before {
-				background-color: #D5EDF6;
-				content: "";
-				height: calc(100% + 3px);
-				position: absolute;
-				right: -7px;
-				top: -9px;
-				transition: background-color 300ms ease-in;
-				width: 100%;
-				z-index: -1;
+            .${uniqueId} .bdt-link-btn span:hover{
+				box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+			     transform: translateY(-2px);
 			}
-			  
-			.${uniqueId} .bdt-link-btn span:hover:before {
-				background-color: #6DCFF6;
-				content: "";
-				position: absolute;
+			.${uniqueId} .bdt-link-btn a:hover{
+				box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+			     transform: translateY(-2px);
 			}
-			.${uniqueId} .bdt-link-btn a:hover:before {
-				background-color: #6DCFF6;
-				content: "";
-				position: absolute;
-			}
-			
+
 			`;
 			break;
 		default:
@@ -239,18 +188,31 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		.${uniqueId} .bdt-button-wrap{
 				text-align: ${btnAlign};
 		}
- 	    .${uniqueId} .bdt-action span{
-			width:${btnSizeDesk}${btnUnit};
+ 	    .${uniqueId} .bdt-link-btn span{
+			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};	
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
+			background-color: ${btnBgColor};
+			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			color: ${btnColor};
 			line-height: 2.2;
 		}
-		.${uniqueId} .bdt-action a{
-			width:${btnSizeDesk}${btnUnit};
+		.${uniqueId} .bdt-link-btn span:hover{
+			color:${btnHoverColor};
+			background-color:${btnbgHoverColor};
+		}
+		.${uniqueId} .bdt-link-btn a{
+			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
+			background-color: ${btnBgColor};
+			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			color: ${btnColor};
 			line-height: 2.2;
-			
+		}
+		.${uniqueId} .bdt-link-btn a:hover{
+			color:${btnHoverColor};
+			background-color:${btnbgHoverColor};
 		}
 		${presetStyles}
 	`;
@@ -258,17 +220,31 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};	
 	}
-	.${uniqueId} .bdt-action span{
-		width:${btnSizeTab}${btnUnit};
+	.${uniqueId} .bdt-link-btn span{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
 	}
-	.${uniqueId} .bdt-action a{
-		width:${btnSizeTab}${btnUnit};
+	.${uniqueId} .bdt-link-btn span:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
+	}
+	.${uniqueId} .bdt-link-btn a{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
+	}
+	.${uniqueId} .bdt-link-btn a:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
 	}
 		${presetStyles}
 	`;
@@ -276,17 +252,31 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};
 	}
-	.${uniqueId} .bdt-action span{
-		width:${btnSizeMob}${btnUnit};
+	.${uniqueId} .bdt-link-btn span{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
 	}
-	.${uniqueId} .bdt-action a{
-		width:${btnSizeMob}${btnUnit};
+	.${uniqueId} .bdt-link-btn span:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
+	}
+	.${uniqueId} .bdt-link-btn a{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
+	}
+	.${uniqueId} .bdt-link-btn a:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
 	}
 	${presetStyles}
 	
@@ -322,7 +312,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			
 				<div className="container">
 				<div className="bdt-button-wrap">
-			 	<div className="bdt-link-btn bdt-action">	
+			 	<div className="bdt-link-btn">	
 						<RichText
 							className='bdt-button'
 							tagName="span"
@@ -338,3 +328,29 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		</Fragment>
 	);
 }
+
+//button 14
+
+
+// .button-14 {
+
+//   background-color: #000000; 
+//   border: 2px solid #1A1A1A;
+//   color: #FFFFFF;
+//   margin: 0;
+//   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+// }
+
+// .button-14:disabled {
+//   pointer-events: none;
+// }
+
+// .button-14:hover {
+//   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+//   transform: translateY(-2px);
+// }
+
+// .button-14:active {
+//   box-shadow: none;
+//   transform: translateY(0);
+// }

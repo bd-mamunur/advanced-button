@@ -45,18 +45,41 @@ const attributes = {
     default: 'left'
   },
   btnBorder: {
-    type: 'number'
+    type: 'number',
+    default: '1'
+  },
+  btnborderStyle: {
+    type: 'string',
+    default: 'solid'
   },
   btnBorderColor: {
-    type: 'string'
-  },
-  btnColor: {
     type: 'string',
     default: '#ccc'
   },
+  btnColor: {
+    type: 'string',
+    default: '#E5F2EB'
+  },
+  btnHoverColor: {
+    type: 'string',
+    default: '#4248f5'
+  },
   btnBgColor: {
     type: 'string',
-    default: '#fff'
+    default: '#18C976'
+  },
+  btnbgHoverColor: {
+    type: 'string',
+    default: '#cccdeb'
+  },
+  btnPadding: {
+    type: 'object',
+    default: {
+      top: '8px',
+      left: '30px',
+      right: '30px',
+      bottom: '8px'
+    }
   },
   ...generateResRangleControlAttributes({
     controlName: BUTTON_SIZE,
@@ -153,9 +176,13 @@ function Edit(_ref) {
     btnRadius,
     btnAlign,
     btnBorder,
+    btnborderStyle,
     btnBorderColor,
     btnBgColor,
-    btnColor
+    btnbgHoverColor,
+    btnColor,
+    btnHoverColor,
+    btnPadding
   } = attributes;
   useEffect(() => {
     if (!uniqueId) {
@@ -180,36 +207,30 @@ function Edit(_ref) {
   /**
    * Presets Based Styles
    */
-  //padding:18px 0;
+
   let presetStyles;
   switch (preset) {
     case 'style-1':
       presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+				
 				box-sizing: border-box;
-				color: ${btnColor};
 				cursor: pointer;
-				background-color: ${btnBgColor};
 				display: inline-block;
 				font-weight: 400;
 				text-align: center;
 				text-transform: none;
-				white-space: nowrap;
 				transition: .2s ease-in;
 			
 			 }
 			 .${uniqueId} .bdt-link-btn a{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
+	
 				box-sizing: border-box;
-				color: ${btnColor};
 				cursor: pointer;
-				background-color: ${btnBgColor};
 				display: inline-block;
 				font-weight: 400;
 				text-align: center;
 				text-transform: none;
-				white-space: nowrap;
 				transition: .2s ease-in;
 				white-space: wrap;
 			 }
@@ -219,19 +240,13 @@ function Edit(_ref) {
     case 'style-2':
       presetStyles = `
 			.${uniqueId} .bdt-link-btn span{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				display: inline-block;
-				color:${btnColor};
 				text-align:center;
 			 }
 			 .${uniqueId} .bdt-link-btn a{
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				background-color: ${btnBgColor};
 				box-shadow: #fff 4px 4px 0 0, #395ddf 4px 4px 0 1px;
 				display: inline-block;
-				color:${btnColor};
 				text-align:center
 				white-space: wrap;
 			 }
@@ -281,80 +296,37 @@ function Edit(_ref) {
     case 'style-3':
       presetStyles = `
 			.${uniqueId} .bdt-link-btn span {
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: ${btnColor};
-				background-color: ${btnBgColor};
 				display: inline-block;
-				position: relative;
-				touch-action: manipulation; 
+				transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+				margin: 0;
 				text-align:center;
+				
+
 			}
 			.${uniqueId} .bdt-link-btn a {
-				border:${btnBorder ? btnBorder : 1}px solid ${btnBorderColor ? btnBorderColor : '#ccc'};
-				color: ${btnColor};
-				background-color: ${btnBgColor};
 				display: inline-block;
-				position: relative;
-				touch-action: manipulation; 
+				transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+				margin: 0; 
 				text-align:center;
 				white-space: wrap;
 			}
 			  
-			.${uniqueId} .bdt-link-btn span:hover{
-				outline: 0;
+			.${uniqueId} .bdt-link-btn span:disabled {
+				pointer-events: none;
 			}
-			.${uniqueId} .bdt-link-btn a:hover{
-				outline: 0;
-			}
-			.${uniqueId} .bdt-link-btn span:active {
-				outline: 0;
-			}
-			.${uniqueId} .bdt-link-btn a:active {
-				outline: 0;
-			}
-			  
-			.${uniqueId} .bdt-link-btn span:hover {
-				background-color: transparent;
-			}
-			.${uniqueId} .bdt-link-btn a:hover {
-				background-color: transparent;
-			}
-			  
-			.${uniqueId} .bdt-link-btn span:before {
-				background-color: #D5EDF6;
-				content: "";
-				height: calc(100% + 3px);
-				position: absolute;
-				right: -7px;
-				top: -9px;
-				transition: background-color 300ms ease-in;
-				width: 100%;
-				z-index: -1;
+			.${uniqueId} .bdt-link-btn a:disabled {
+				pointer-events: none;
 			}
 
-			.${uniqueId} .bdt-link-btn a:before {
-				background-color: #D5EDF6;
-				content: "";
-				height: calc(100% + 3px);
-				position: absolute;
-				right: -7px;
-				top: -9px;
-				transition: background-color 300ms ease-in;
-				width: 100%;
-				z-index: -1;
+            .${uniqueId} .bdt-link-btn span:hover{
+				box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+			     transform: translateY(-2px);
 			}
-			  
-			.${uniqueId} .bdt-link-btn span:hover:before {
-				background-color: #6DCFF6;
-				content: "";
-				position: absolute;
+			.${uniqueId} .bdt-link-btn a:hover{
+				box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+			     transform: translateY(-2px);
 			}
-			.${uniqueId} .bdt-link-btn a:hover:before {
-				background-color: #6DCFF6;
-				content: "";
-				position: absolute;
-			}
-			
+
 			`;
       break;
     default:
@@ -364,18 +336,31 @@ function Edit(_ref) {
 		.${uniqueId} .bdt-button-wrap{
 				text-align: ${btnAlign};
 		}
- 	    .${uniqueId} .bdt-action span{
-			width:${btnSizeDesk}${btnUnit};
+ 	    .${uniqueId} .bdt-link-btn span{
+			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};	
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
+			background-color: ${btnBgColor};
+			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			color: ${btnColor};
 			line-height: 2.2;
 		}
-		.${uniqueId} .bdt-action a{
-			width:${btnSizeDesk}${btnUnit};
+		.${uniqueId} .bdt-link-btn span:hover{
+			color:${btnHoverColor};
+			background-color:${btnbgHoverColor};
+		}
+		.${uniqueId} .bdt-link-btn a{
+			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
+			background-color: ${btnBgColor};
+			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			color: ${btnColor};
 			line-height: 2.2;
-			
+		}
+		.${uniqueId} .bdt-link-btn a:hover{
+			color:${btnHoverColor};
+			background-color:${btnbgHoverColor};
 		}
 		${presetStyles}
 	`;
@@ -383,17 +368,31 @@ function Edit(_ref) {
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};	
 	}
-	.${uniqueId} .bdt-action span{
-		width:${btnSizeTab}${btnUnit};
+	.${uniqueId} .bdt-link-btn span{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
 	}
-	.${uniqueId} .bdt-action a{
-		width:${btnSizeTab}${btnUnit};
+	.${uniqueId} .bdt-link-btn span:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
+	}
+	.${uniqueId} .bdt-link-btn a{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
+	}
+	.${uniqueId} .bdt-link-btn a:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
 	}
 		${presetStyles}
 	`;
@@ -401,17 +400,31 @@ function Edit(_ref) {
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};
 	}
-	.${uniqueId} .bdt-action span{
-		width:${btnSizeMob}${btnUnit};
+	.${uniqueId} .bdt-link-btn span{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
 	}
-	.${uniqueId} .bdt-action a{
-		width:${btnSizeMob}${btnUnit};
+	.${uniqueId} .bdt-link-btn span:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
+	}
+	.${uniqueId} .bdt-link-btn a{
+		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
+		background-color: ${btnBgColor};
+		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		color: ${btnColor};
 		line-height: 2.2;
+	}
+	.${uniqueId} .bdt-link-btn a:hover{
+		color:${btnHoverColor};
+		background-color:${btnbgHoverColor};
 	}
 	${presetStyles}
 	
@@ -446,7 +459,7 @@ function Edit(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-button-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bdt-link-btn bdt-action"
+    className: "bdt-link-btn"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "bdt-button",
     tagName: "span",
@@ -457,6 +470,31 @@ function Edit(_ref) {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label…', 'advanced-button')
   }))))));
 }
+
+//button 14
+
+// .button-14 {
+
+//   background-color: #000000; 
+//   border: 2px solid #1A1A1A;
+//   color: #FFFFFF;
+//   margin: 0;
+//   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+// }
+
+// .button-14:disabled {
+//   pointer-events: none;
+// }
+
+// .button-14:hover {
+//   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+//   transform: translateY(-2px);
+// }
+
+// .button-14:active {
+//   box-shadow: none;
+//   transform: translateY(0);
+// }
 
 /***/ }),
 
@@ -536,7 +574,8 @@ __webpack_require__.r(__webpack_exports__);
 const {
   ResRangleControl,
   AlignmentControl,
-  ColorControl
+  ColorControl,
+  TabPanelControl
 } = _controls__WEBPACK_IMPORTED_MODULE_5__;
 const {
   BUTTON_FONTSIZE,
@@ -565,16 +604,60 @@ const Inspector = _ref => {
     btnRadius,
     btnAlign,
     btnBorder,
+    btnborderStyle,
     btnBorderColor,
     btnColor,
-    btnBgColor
+    btnHoverColor,
+    btnBgColor,
+    btnbgHoverColor,
+    btnPadding
   } = attributes;
   const objAttrs = {
     attributes,
     setAttributes,
     objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+  console.log(btnPadding);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
+    className: "my-tab-panel",
+    activeClass: "active-tab",
+    tabs: [{
+      name: 'tab1',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'advanced-button'),
+      className: 'tab-one adb-btn'
+    }, {
+      name: 'tab2',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'advanced-button'),
+      className: 'tab-two adb-btn'
+    }]
+  }, tab => {
+    if (tab.name === 'tab1') {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'advanced-button'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
+        controlName: BUTTON_SIZE,
+        objAttrs: objAttrs,
+        noUnits: false,
+        max: 100,
+        min: 5
+      }));
+    } else if (tab.name === "tab2") {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'advanced-button'),
+        initialOpen: false
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'advanced-button'),
+        value: btnBorder,
+        onChange: border => setAttributes({
+          btnBorder: border
+        }),
+        min: 0,
+        max: 10
+      }));
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
@@ -611,12 +694,7 @@ const Inspector = _ref => {
     onChange: data => setAttributes({
       btnLinkObj: data
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    onClick: () => setAttributes({
-      btnLinkObj: null
-    }),
-    variant: "primary"
-  }, "Clear"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
     controlName: BUTTON_SIZE,
     objAttrs: objAttrs,
@@ -624,13 +702,19 @@ const Inspector = _ref => {
     max: 100,
     min: 5
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Font Size', 'advanced-button'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Font Size', 'advanced-button'),
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
     noUnits: false,
     max: 100,
     min: 5
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalBoxControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Padding', 'advanced-button'),
+    values: btnPadding,
+    onChange: nextValues => setAttributes({
+      btnPadding: nextValues
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Radius', 'advanced-button'),
     value: btnRadius,
     onChange: btnValue => setAttributes({
@@ -653,21 +737,58 @@ const Inspector = _ref => {
     }),
     min: 0,
     max: 10
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Style', 'advanced-button'),
+    value: btnborderStyle,
+    options: [{
+      label: 'Solid',
+      value: 'solid'
+    }, {
+      label: 'Dotted',
+      value: 'dotted'
+    }, {
+      label: 'Dashed',
+      value: 'dashed'
+    }, {
+      label: 'Double',
+      value: 'double'
+    }, {
+      label: 'Groove',
+      value: 'groove'
+    }],
+    onChange: borderStyle => {
+      setAttributes({
+        btnborderStyle: borderStyle
+      });
+    }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border color', 'advanced-button'),
     color: btnBorderColor,
     colorName: "btnBorderColor",
     onChange: setAttributes
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'advanced-button'),
-    color: btnColor,
-    colorName: "btnColor",
-    onChange: setAttributes
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'advanced-button'),
-    color: btnBgColor,
-    colorName: "btnBgColor",
-    onChange: setAttributes
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(TabPanelControl, {
+    normalComponent: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color', 'advanced-button'),
+      color: btnColor,
+      colorName: "btnColor",
+      onChange: setAttributes
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background color', 'advanced-button'),
+      color: btnBgColor,
+      colorName: "btnBgColor",
+      onChange: setAttributes
+    })),
+    hoverComponent: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Hover Color', 'advanced-button'),
+      color: btnHoverColor,
+      colorName: "btnHoverColor",
+      onChange: setAttributes
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ColorControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Hover', 'advanced-button'),
+      color: btnbgHoverColor,
+      colorName: "btnbgHoverColor",
+      onChange: setAttributes
+    }))
   })));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Inspector);
@@ -706,7 +827,7 @@ function save(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bdt-button-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bdt-link-btn bdt-action"
+    className: "bdt-link-btn"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: btnLinkObj && btnLinkObj.url && btnLinkObj.url,
     target: btnLinkObj && btnLinkObj.openInNewTab && '_blank',
@@ -856,11 +977,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ResRangleControl": function() { return /* reexport safe */ _res_rangle_control__WEBPACK_IMPORTED_MODULE_0__["default"]; },
 /* harmony export */   "AlignmentControl": function() { return /* reexport safe */ _alignment_control__WEBPACK_IMPORTED_MODULE_1__["default"]; },
-/* harmony export */   "ColorControl": function() { return /* reexport safe */ _color_control__WEBPACK_IMPORTED_MODULE_2__["default"]; }
+/* harmony export */   "ColorControl": function() { return /* reexport safe */ _color_control__WEBPACK_IMPORTED_MODULE_2__["default"]; },
+/* harmony export */   "TabPanelControl": function() { return /* reexport safe */ _tab_control__WEBPACK_IMPORTED_MODULE_3__["default"]; }
 /* harmony export */ });
 /* harmony import */ var _res_rangle_control__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./res-rangle-control */ "./src/controls/res-rangle-control/index.js");
 /* harmony import */ var _alignment_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./alignment-control */ "./src/controls/alignment-control/index.js");
 /* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./color-control */ "./src/controls/color-control/index.js");
+/* harmony import */ var _tab_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab-control */ "./src/controls/tab-control/index.js");
+
 
 
 
@@ -1022,6 +1146,53 @@ const ResRangleControl = _ref => {
 
 /***/ }),
 
+/***/ "./src/controls/tab-control/index.js":
+/*!*******************************************!*\
+  !*** ./src/controls/tab-control/index.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./src/controls/tab-control/style.scss");
+
+
+
+
+const MyTabPanel = _ref => {
+  let {
+    normalComponent,
+    hoverComponent
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+    className: "my-tab-panel",
+    activeClass: "active-tab",
+    tabs: [{
+      name: 'tab1',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Normal", 'advanced-button'),
+      className: 'tab-one bdt-tab'
+    }, {
+      name: 'tab2',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Hover', 'advanced-button'),
+      className: 'tab-two bdt-tab'
+    }]
+  }, tab => {
+    if (tab.name === "tab1") {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, normalComponent);
+    } else if (tab.name === "tab2") {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, hoverComponent);
+    }
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (MyTabPanel);
+
+/***/ }),
+
 /***/ "./src/generators/index.js":
 /*!*********************************!*\
   !*** ./src/generators/index.js ***!
@@ -1135,6 +1306,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./src/controls/res-rangle-control/style.scss ***!
   \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/controls/tab-control/style.scss":
+/*!*********************************************!*\
+  !*** ./src/controls/tab-control/style.scss ***!
+  \*********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);

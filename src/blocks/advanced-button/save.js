@@ -15,7 +15,7 @@ export default function save({ attributes }) {
 			(
 			<div className="container">
 				<div className="bdt-button-wrap">
-				<div className="bdt-link-btn bdt-action">
+				<div className="bdt-link-btn">
 					<a href={
 								btnLinkObj &&
 								btnLinkObj.url &&

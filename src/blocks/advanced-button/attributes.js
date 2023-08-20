@@ -31,18 +31,42 @@ const attributes = {
 	},
 	btnBorder: {
 		type: 'number',
+		default:'1'
+	},
+	btnborderStyle:{
+		type:'string',
+		default:'solid'
 	},
 	btnBorderColor: {
 		type: 'string',
+		default:'#ccc'
 	},
 	btnColor: {
 		type: 'string',
-		default: '#ccc',
+		default: '#E5F2EB',
+	},
+	btnHoverColor:{
+		type:'string',
+		default:'#4248f5'
 	},
 	btnBgColor: {
 		type: 'string',
-		default: '#fff',
+		default: '#18C976',
 	},
+	btnbgHoverColor:{
+		type:'string',
+		default:'#cccdeb'
+	},
+	btnPadding:{
+		type:'object',
+		default:{
+			top: '8px',
+			left: '30px',
+			right: '30px',
+			bottom: '8px',
+		}
+	},
+
 	
 	...generateResRangleControlAttributes({
 		controlName: BUTTON_SIZE,

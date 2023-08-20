@@ -4,19 +4,17 @@
 /*
 * Style Works for both Editor and Frontend
 */
-.wp-block-bdt-advanced-button * {
-  margin: 0;
-  padding: 0;
-}
 .wp-block-bdt-advanced-button a {
   text-decoration: none;
 }
 .wp-block-bdt-advanced-button .bdt-link-btn span, .wp-block-bdt-advanced-button a {
   box-sizing: border-box;
+  padding: 8px 30px;
   color: #fff;
   cursor: pointer;
   background-color: green;
   display: inline-block;
+  border: 1px solid #000000;
   font-size: 14px;
   font-weight: 400;
   line-height: 2.2;
@@ -70,6 +68,20 @@
   border-radius: 5px;
   box-shadow: 0 0 5px #0000002b;
   cursor: pointer;
+}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/controls/tab-control/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.components-tab-panel__tabs {
+  width: 100%;
+}
+.components-tab-panel__tabs .bdt-tab {
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  justify-content: center;
+}
+.components-tab-panel__tabs .bdt-tab.active-tab {
+  background: #e0e0e0;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
