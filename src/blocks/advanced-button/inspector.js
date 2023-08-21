@@ -12,7 +12,7 @@ import * as Constants from './constants';
 import * as Controls from '../../controls';
 
 const { ResRangleControl,AlignmentControl,ColorControl,TabPanelControl } = Controls;
-const { BUTTON_FONTSIZE,BUTTON_SIZE } = Constants;
+const { BUTTON_FONTSIZE} = Constants;
 
 import objAttributes from './attributes';
 
@@ -39,56 +39,10 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnPadding 
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
-	console.log(btnPadding);
+	
 	return (
 	
 			<InspectorControls>
-				    <TabPanel
-						className="my-tab-panel"
-						activeClass="active-tab"
-						
-						tabs={ [
-							{
-								name: 'tab1',
-								title: __('Design','advanced-button'),
-								className: 'tab-one adb-btn',
-							},
-							{
-								name: 'tab2',
-								title: __('Settings','advanced-button'),
-								className: 'tab-two adb-btn',
-							},
-						] }
-					>
-						{ ( tab ) =>{if(tab.name==='tab1'){
-								return (
-									<PanelBody title={__('Design', 'advanced-button')}
-									initialOpen={false}>
-										<ResRangleControl
-										label={__('Button Size', 'advanced-button')}
-										controlName={BUTTON_SIZE}
-										objAttrs={objAttrs}
-										noUnits={false}
-										max={100}
-										min={5}
-									/>
-								</PanelBody>
-								)
-						}else if(tab.name==="tab2"){
-							return (
-								<PanelBody title={__('Settings', 'advanced-button')}
-									initialOpen={false}>
-										<RangeControl
-										label={__('Border', 'advanced-button')}
-										value={btnBorder}
-										onChange={(border) => setAttributes({ btnBorder: border })}
-										min={0}
-										max={10}
-									/>
-							</PanelBody>
-							)
-						}} }
-					</TabPanel>
 				<PanelBody
 				title={__('Button', 'advanced-button')}
 				initialOpen={false}
@@ -129,15 +83,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 				/>
 				
 				<CardDivider />
-				{/* button size remove */}
-				<ResRangleControl
-					label={__('Button Size', 'advanced-button')}
-					controlName={BUTTON_SIZE}
-					objAttrs={objAttrs}
-					noUnits={false}
-					max={100}
-					min={5}
-				/>
 				<CardDivider />
 				<ResRangleControl
 					label={__('Font Size', 'advanced-button')}

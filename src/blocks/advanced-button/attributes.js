@@ -67,16 +67,6 @@ const attributes = {
 		}
 	},
 
-	
-	...generateResRangleControlAttributes({
-		controlName: BUTTON_SIZE,
-		defaults: {
-			[`${BUTTON_SIZE}DeskRange`]: 70,
-			[`${BUTTON_SIZE}TabRange`]: 60,
-			[`${BUTTON_SIZE}MobRange`]: 50,
-			[`${BUTTON_SIZE}Unit`]: 'px',
-		},
-	}),
 	...generateResRangleControlAttributes({
 		controlName: BUTTON_FONTSIZE,
 		defaults: {

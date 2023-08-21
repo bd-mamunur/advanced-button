@@ -82,15 +82,6 @@ const attributes = {
     }
   },
   ...generateResRangleControlAttributes({
-    controlName: BUTTON_SIZE,
-    defaults: {
-      [`${BUTTON_SIZE}DeskRange`]: 70,
-      [`${BUTTON_SIZE}TabRange`]: 60,
-      [`${BUTTON_SIZE}MobRange`]: 50,
-      [`${BUTTON_SIZE}Unit`]: 'px'
-    }
-  }),
-  ...generateResRangleControlAttributes({
     controlName: BUTTON_FONTSIZE,
     defaults: {
       [`${BUTTON_FONTSIZE}DeskRange`]: 18,
@@ -112,11 +103,9 @@ const attributes = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BUTTON_FONTSIZE": function() { return /* binding */ BUTTON_FONTSIZE; },
-/* harmony export */   "BUTTON_SIZE": function() { return /* binding */ BUTTON_SIZE; }
+/* harmony export */   "BUTTON_FONTSIZE": function() { return /* binding */ BUTTON_FONTSIZE; }
 /* harmony export */ });
 const BUTTON_FONTSIZE = 'buttonFontSize';
-const BUTTON_SIZE = 'buttonSize';
 
 /***/ }),
 
@@ -578,8 +567,7 @@ const {
   TabPanelControl
 } = _controls__WEBPACK_IMPORTED_MODULE_5__;
 const {
-  BUTTON_FONTSIZE,
-  BUTTON_SIZE
+  BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
 
 const alignIconOption = [{
@@ -617,47 +605,7 @@ const Inspector = _ref => {
     setAttributes,
     objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
-  console.log(btnPadding);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TabPanel, {
-    className: "my-tab-panel",
-    activeClass: "active-tab",
-    tabs: [{
-      name: 'tab1',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'advanced-button'),
-      className: 'tab-one adb-btn'
-    }, {
-      name: 'tab2',
-      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'advanced-button'),
-      className: 'tab-two adb-btn'
-    }]
-  }, tab => {
-    if (tab.name === 'tab1') {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design', 'advanced-button'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
-        controlName: BUTTON_SIZE,
-        objAttrs: objAttrs,
-        noUnits: false,
-        max: 100,
-        min: 5
-      }));
-    } else if (tab.name === "tab2") {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'advanced-button'),
-        initialOpen: false
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border', 'advanced-button'),
-        value: btnBorder,
-        onChange: border => setAttributes({
-          btnBorder: border
-        }),
-        min: 0,
-        max: 10
-      }));
-    }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
@@ -694,14 +642,7 @@ const Inspector = _ref => {
     onChange: data => setAttributes({
       btnLinkObj: data
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Size', 'advanced-button'),
-    controlName: BUTTON_SIZE,
-    objAttrs: objAttrs,
-    noUnits: false,
-    max: 100,
-    min: 5
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Font Size', 'advanced-button'),
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
