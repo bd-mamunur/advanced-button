@@ -4,7 +4,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 const { Fragment, useEffect } = wp.element;
 import * as Constants from './constants';
-const {  BUTTON_FONTSIZE,BUTTON_SIZE} =Constants;
+const {  BUTTON_FONTSIZE} =Constants;
 
 // editor style
 import './editor.scss';
@@ -39,12 +39,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		}
 	}, []);
 
-	const {
-		[`${BUTTON_SIZE}DeskRange`]: btnSizeDesk,
-		[`${BUTTON_SIZE}TabRange`]: btnSizeTab,
-		[`${BUTTON_SIZE}MobRange`]: btnSizeMob,
-		[`${BUTTON_SIZE}Unit`]: btnUnit,
-	} = attributes;
+	
 
 	const {
 		[`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
@@ -193,7 +188,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -206,7 +201,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -225,7 +220,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '25px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '25px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -238,7 +233,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -257,7 +252,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -270,7 +265,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}

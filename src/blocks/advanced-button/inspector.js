@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls,__experimentalLinkControl as LinkControl} from '@wordpress/block-editor';
-import { PanelBody,SelectControl,CardDivider,TextControl,TabPanel,RangeControl,__experimentalBoxControl as BoxControl  } from '@wordpress/components';
+import { PanelBody,SelectControl,CardDivider,TextControl,RangeControl,__experimentalBoxControl as BoxControl  } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -39,6 +39,12 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnPadding 
 	} = attributes;
 	const objAttrs = { attributes, setAttributes, objAttributes };
+
+	const bdtboxcontrol =(newValue)=>{
+			
+		 setAttributes({btnPadding:newValue}); 
+			
+	}
 	
 	return (
 	
@@ -81,8 +87,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 					
 					
 				/>
-				
-				<CardDivider />
 				<CardDivider />
 				<ResRangleControl
 					label={__('Font Size', 'advanced-button')}
@@ -95,7 +99,7 @@ const Inspector = ({ attributes, setAttributes }) => {
 				<BoxControl
 				    label={__('Button Padding','advanced-button')}
 					 values={btnPadding}
-					 onChange={ ( nextValues ) => setAttributes( {btnPadding:nextValues} ) }
+					 onChange={ (newValue)=> bdtboxcontrol(newValue) }
 				/>
 				<CardDivider/>
 				<RangeControl
@@ -139,8 +143,6 @@ const Inspector = ({ attributes, setAttributes }) => {
 			 		] }
 					 onChange={ ( borderStyle ) => { setAttributes( { btnborderStyle:borderStyle } ) } }
 				 />
-
-
 				<ColorControl
 					label={__('Border color', 'advanced-button')}
 					color={btnBorderColor}

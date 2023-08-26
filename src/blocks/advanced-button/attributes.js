@@ -60,10 +60,10 @@ const attributes = {
 	btnPadding:{
 		type:'object',
 		default:{
-			top: '8px',
-			left: '30px',
-			right: '30px',
-			bottom: '8px',
+			top: '5px',
+			left: '20px',
+			right: '20px',
+			bottom: '5px',
 		}
 	},
 

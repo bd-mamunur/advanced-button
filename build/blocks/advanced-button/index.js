@@ -75,10 +75,10 @@ const attributes = {
   btnPadding: {
     type: 'object',
     default: {
-      top: '8px',
-      left: '30px',
-      right: '30px',
-      bottom: '8px'
+      top: '5px',
+      left: '20px',
+      right: '20px',
+      bottom: '5px'
     }
   },
   ...generateResRangleControlAttributes({
@@ -139,8 +139,7 @@ const {
 } = wp.element;
 
 const {
-  BUTTON_FONTSIZE,
-  BUTTON_SIZE
+  BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_3__;
 
 // editor style
@@ -180,12 +179,6 @@ function Edit(_ref) {
       });
     }
   }, []);
-  const {
-    [`${BUTTON_SIZE}DeskRange`]: btnSizeDesk,
-    [`${BUTTON_SIZE}TabRange`]: btnSizeTab,
-    [`${BUTTON_SIZE}MobRange`]: btnSizeMob,
-    [`${BUTTON_SIZE}Unit`]: btnUnit
-  } = attributes;
   const {
     [`${BUTTON_FONTSIZE}DeskRange`]: btnFontSizeDesk,
     [`${BUTTON_FONTSIZE}TabRange`]: btnFontSizeTab,
@@ -330,7 +323,7 @@ function Edit(_ref) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -343,7 +336,7 @@ function Edit(_ref) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -362,7 +355,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '25px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '25px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -375,7 +368,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -394,7 +387,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -407,7 +400,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '8px'}  ${btnPadding.right ? btnPadding.right : '30px'} ${btnPadding.bottom ? btnPadding.bottom : "8px"} ${btnPadding.left ? btnPadding.left : '30px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -605,6 +598,11 @@ const Inspector = _ref => {
     setAttributes,
     objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
+  const bdtboxcontrol = newValue => {
+    setAttributes({
+      btnPadding: newValue
+    });
+  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false
@@ -642,7 +640,7 @@ const Inspector = _ref => {
     onChange: data => setAttributes({
       btnLinkObj: data
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResRangleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Font Size', 'advanced-button'),
     controlName: BUTTON_FONTSIZE,
     objAttrs: objAttrs,
@@ -652,9 +650,7 @@ const Inspector = _ref => {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalBoxControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Padding', 'advanced-button'),
     values: btnPadding,
-    onChange: nextValues => setAttributes({
-      btnPadding: nextValues
-    })
+    onChange: newValue => bdtboxcontrol(newValue)
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardDivider, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Radius', 'advanced-button'),
     value: btnRadius,
