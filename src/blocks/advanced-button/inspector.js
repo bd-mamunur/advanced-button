@@ -41,9 +41,8 @@ const Inspector = ({ attributes, setAttributes }) => {
 	const objAttrs = { attributes, setAttributes, objAttributes };
 
 	const bdtboxcontrol =(newValue)=>{
-			
-		 setAttributes({btnPadding:newValue}); 
-			
+
+		 setAttributes({btnPadding:newValue}); 	
 	}
 	
 	return (
