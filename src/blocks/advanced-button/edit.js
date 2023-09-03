@@ -211,6 +211,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 		}
 		${presetStyles}
 	`;
+
+	// tab style	
+
 	const tabStyles = `
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};	
@@ -243,6 +246,9 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 	}
 		${presetStyles}
 	`;
+
+    // mob style
+
 	const mobStyles = `
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};
@@ -295,6 +301,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
+	
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>

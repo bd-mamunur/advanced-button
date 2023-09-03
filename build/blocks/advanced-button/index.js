@@ -346,6 +346,9 @@ function Edit(_ref) {
 		}
 		${presetStyles}
 	`;
+
+  // tab style	
+
   const tabStyles = `
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};	
@@ -378,6 +381,9 @@ function Edit(_ref) {
 	}
 		${presetStyles}
 	`;
+
+  // mob style
+
   const mobStyles = `
 	.${uniqueId} .bdt-button-wrap{
 		text-align: ${btnAlign};

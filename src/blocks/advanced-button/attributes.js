@@ -3,7 +3,7 @@ import * as generators from '../../generators';
 
 const { generateResRangleControlAttributes } = generators;
 
-const {BUTTON_FONTSIZE,BUTTON_SIZE } = constants;
+const {BUTTON_FONTSIZE} = constants;
 
 const attributes = {
 	uniqueId: {
