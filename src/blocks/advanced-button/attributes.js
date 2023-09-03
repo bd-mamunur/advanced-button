@@ -12,6 +12,9 @@ const attributes = {
 	blockStyle: {
 		type: 'object',
 	},
+	resMode:{
+		type:'string',
+	},
 	preset:{
 		type:'string'
 	},

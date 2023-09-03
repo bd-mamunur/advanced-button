@@ -13,5 +13,6 @@ wp.hooks.addFilter(
 			};
 		}
 		return settings;
+	
 	}
 );

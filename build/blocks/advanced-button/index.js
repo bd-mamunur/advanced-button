@@ -17,8 +17,7 @@ const {
   generateResRangleControlAttributes
 } = _generators__WEBPACK_IMPORTED_MODULE_1__;
 const {
-  BUTTON_FONTSIZE,
-  BUTTON_SIZE
+  BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_0__;
 const attributes = {
   uniqueId: {
@@ -26,6 +25,9 @@ const attributes = {
   },
   blockStyle: {
     type: 'object'
+  },
+  resMode: {
+    type: 'string'
   },
   preset: {
     type: 'string'
