@@ -301,7 +301,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 			setAttributes({ blockStyle: blockStyleCss });
 		}
 	}, [attributes]);
-	
+	console.log(attributes);
 	return (
 		<Fragment>
 			<style>{`${softMinifyCssStrings(blockStyleCss)}`}</style>

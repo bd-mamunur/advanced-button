@@ -26,9 +26,6 @@ const attributes = {
   blockStyle: {
     type: 'object'
   },
-  resMode: {
-    type: 'string'
-  },
   preset: {
     type: 'string'
   },
@@ -439,6 +436,7 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
+  console.log(attributes);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
