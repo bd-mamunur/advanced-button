@@ -322,7 +322,7 @@ function Edit(_ref) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -335,7 +335,7 @@ function Edit(_ref) {
 			font-size:${btnFontSizeDesk}${btnFontUnit};
 			border-radius:${btnRadius}px;
 			background-color: ${btnBgColor};
-			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
+			padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '20px'};
 			color: ${btnColor};
 			line-height: 2.2;
 		}
@@ -346,7 +346,7 @@ function Edit(_ref) {
 		${presetStyles}
 	`;
 
-  // tab style	
+  // tab style
 
   const tabStyles = `
 	.${uniqueId} .bdt-button-wrap{
@@ -357,7 +357,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '25px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '25px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '25px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '25px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -370,7 +370,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeTab}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -392,7 +392,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -405,7 +405,7 @@ function Edit(_ref) {
 		font-size:${btnFontSizeMob}${btnFontUnit};
 		border-radius:${btnRadius}px;
 		background-color: ${btnBgColor};
-		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : "5px"} ${btnPadding.left ? btnPadding.left : '20px'};
+		padding: ${btnPadding.top ? btnPadding.top : '5px'}  ${btnPadding.right ? btnPadding.right : '20px'} ${btnPadding.bottom ? btnPadding.bottom : '5px'} ${btnPadding.left ? btnPadding.left : '20px'};
 		color: ${btnColor};
 		line-height: 2.2;
 	}
@@ -436,7 +436,6 @@ function Edit(_ref) {
       });
     }
   }, [attributes]);
-  console.log(attributes);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `${(0,_helper_softminify__WEBPACK_IMPORTED_MODULE_6__.softMinifyCssStrings)(blockStyleCss)}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_inspector__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
@@ -458,31 +457,6 @@ function Edit(_ref) {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Label…', 'advanced-button')
   }))))));
 }
-
-//button 14
-
-// .button-14 {
-
-//   background-color: #000000; 
-//   border: 2px solid #1A1A1A;
-//   color: #FFFFFF;
-//   margin: 0;
-//   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-// }
-
-// .button-14:disabled {
-//   pointer-events: none;
-// }
-
-// .button-14:hover {
-//   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-//   transform: translateY(-2px);
-// }
-
-// .button-14:active {
-//   box-shadow: none;
-//   transform: translateY(0);
-// }
 
 /***/ }),
 
@@ -545,7 +519,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/blocks/advanced-button/constants/index.js");
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../controls */ "./src/controls/index.js");
-/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attributes */ "./src/blocks/advanced-button/attributes.js");
 
 /**
  * WordPress dependencies
@@ -568,6 +541,8 @@ const {
 const {
   BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
+
+// import objAttributes from './attributes';
 
 const alignIconOption = [{
   name: 'editor-alignleft',
@@ -601,14 +576,14 @@ const Inspector = _ref => {
   } = attributes;
   const objAttrs = {
     attributes,
-    setAttributes,
-    objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
+    setAttributes
   };
   const bdtboxcontrol = newValue => {
     setAttributes({
       btnPadding: newValue
     });
   };
+  console.log('objAttributes');
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false

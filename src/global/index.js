@@ -2,8 +2,8 @@
 wp.hooks.addFilter(
 	'blocks.registerBlockType',
 	'bdt/attribute/resMode',
-	function (settings, name) {
-		if (name.includes('bdt/')) {
+	function ( settings, name ) {
+		if ( name.includes( 'bdt/' ) ) {
 			settings.attributes = {
 				...settings.attributes,
 				resMode: {
@@ -13,6 +13,5 @@ wp.hooks.addFilter(
 			};
 		}
 		return settings;
-	
 	}
 );

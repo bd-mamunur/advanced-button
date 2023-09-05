@@ -14,7 +14,7 @@ import * as Controls from '../../controls';
 const { ResRangleControl,AlignmentControl,ColorControl,TabPanelControl } = Controls;
 const { BUTTON_FONTSIZE} = Constants;
 
-import objAttributes from './attributes';
+// import objAttributes from './attributes';
 
 const alignIconOption = [
 	{ name: 'editor-alignleft', value: 'left' },
@@ -38,13 +38,12 @@ const Inspector = ({ attributes, setAttributes }) => {
 		btnbgHoverColor,
 		btnPadding 
 	} = attributes;
-	const objAttrs = { attributes, setAttributes, objAttributes };
+    const objAttrs = { attributes, setAttributes};
 
 	const bdtboxcontrol =(newValue)=>{
-
 		 setAttributes({btnPadding:newValue}); 	
-	}
-	
+		}
+	console.log('objAttributes');
 	return (
 	
 			<InspectorControls>
