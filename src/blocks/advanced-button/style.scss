@@ -3,27 +3,23 @@
 */
 
 .wp-block-bdt-advanced-button {
-
 	a {
 		text-decoration: none;
-		
 	}
-.bdt-link-btn span,a{
-	box-sizing: border-box;
-	padding: 5px 20px;
-	color: #fff;
-	cursor: pointer;
-	background-color: green;
-	display: inline-block;
-	border: 1px solid #000000;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 2.2;
-	text-align: center;
-	text-transform: none;
-	transition: .2s ease-in;
+	.bdt-link-btn span,
+	a {
+		box-sizing: border-box;
+		padding: 5px 20px;
+		color: #fff;
+		cursor: pointer;
+		background-color: green;
+		display: inline-block;
+		// border: 1px solid #000000;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 2.2;
+		text-align: center;
+		text-transform: none;
+		transition: 0.2s ease-in;
+	}
 }
-
-
-}
-	

@@ -519,6 +519,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./constants */ "./src/blocks/advanced-button/constants/index.js");
 /* harmony import */ var _controls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../controls */ "./src/controls/index.js");
+/* harmony import */ var _attributes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./attributes */ "./src/blocks/advanced-button/attributes.js");
 
 /**
  * WordPress dependencies
@@ -541,8 +542,6 @@ const {
 const {
   BUTTON_FONTSIZE
 } = _constants__WEBPACK_IMPORTED_MODULE_4__;
-
-// import objAttributes from './attributes';
 
 const alignIconOption = [{
   name: 'editor-alignleft',
@@ -576,14 +575,14 @@ const Inspector = _ref => {
   } = attributes;
   const objAttrs = {
     attributes,
-    setAttributes
+    setAttributes,
+    objAttributes: _attributes__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
   const bdtboxcontrol = newValue => {
     setAttributes({
       btnPadding: newValue
     });
   };
-  console.log('objAttributes');
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button', 'advanced-button'),
     initialOpen: false

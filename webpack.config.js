@@ -1,5 +1,5 @@
-const path = require('path');
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const path = require( 'path' );
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
 module.exports = [
 	{
@@ -7,9 +7,9 @@ module.exports = [
 	},
 	{
 		entry: {
-			modules: path.resolve(process.cwd(), 'src', 'modules-export.js'),
+			modules: path.resolve( process.cwd(), 'src', 'modules-export.js' ),
 		},
-		
+
 		module: {
 			rules: [
 				{
@@ -27,9 +27,9 @@ module.exports = [
 				},
 			],
 		},
-		mode: 'development',
+
 		output: {
-			path: path.resolve(process.cwd(), 'modules'),
+			path: path.resolve( process.cwd(), 'modules' ),
 			filename: 'index.js',
 			library: {
 				name: 'BDTBlocks',
@@ -44,10 +44,10 @@ module.exports = [
 	},
 	{
 		entry: {
-			global: path.resolve(process.cwd(), 'src', 'global', 'index.js'),
+			global: path.resolve( process.cwd(), 'src', 'global', 'index.js' ),
 		},
 		output: {
-			path: path.resolve(process.cwd(), 'dist'),
+			path: path.resolve( process.cwd(), 'dist' ),
 			filename: '[name].js',
 		},
 	},
