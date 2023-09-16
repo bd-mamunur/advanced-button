@@ -28,9 +28,10 @@ const { BUTTON_FONTSIZE } = Constants;
 import objAttributes from './attributes';
 
 const alignIconOption = [
-	{ name: 'editor-alignleft', value: 'left' },
+	{ name: 'editor-alignleft', value: 'flex-start' },
 	{ name: 'editor-aligncenter', value: 'center' },
-	{ name: 'editor-alignright', value: 'right' },
+	{ name: 'editor-alignright', value: 'flex-end' },
+	{ name: 'menu-alt', value: 'stretch' },
 ];
 
 const Inspector = ( { attributes, setAttributes } ) => {

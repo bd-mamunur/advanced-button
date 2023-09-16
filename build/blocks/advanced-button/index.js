@@ -314,9 +314,12 @@ function Edit(_ref) {
       '';
   }
   const deskStyles = `
-		.${uniqueId} .bdt-button-wrap{
-				text-align: ${btnAlign};
-		}
+	
+		.${uniqueId} .bdt-link-btn{
+			display: flex;
+			align-items: ${btnAlign};
+			flex-direction: column;
+		};
  	    .${uniqueId} .bdt-link-btn span{
 			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};	
 			font-size:${btnFontSizeDesk}${btnFontUnit};
@@ -349,9 +352,11 @@ function Edit(_ref) {
   // tab style
 
   const tabStyles = `
-	.${uniqueId} .bdt-button-wrap{
-		text-align: ${btnAlign};	
-	}
+	.${uniqueId} .bdt-link-btn{
+		display: flex;
+		align-items: ${btnAlign};
+		flex-direction: column;
+	};
 	.${uniqueId} .bdt-link-btn span{
 		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
@@ -384,9 +389,11 @@ function Edit(_ref) {
   // mob style
 
   const mobStyles = `
-	.${uniqueId} .bdt-button-wrap{
-		text-align: ${btnAlign};
-	}
+	.${uniqueId} .bdt-link-btn{
+		display: flex;
+		align-items: ${btnAlign};
+		flex-direction: column;
+	};
 	.${uniqueId} .bdt-link-btn span{
 		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
@@ -545,13 +552,16 @@ const {
 
 const alignIconOption = [{
   name: 'editor-alignleft',
-  value: 'left'
+  value: 'flex-start'
 }, {
   name: 'editor-aligncenter',
   value: 'center'
 }, {
   name: 'editor-alignright',
-  value: 'right'
+  value: 'flex-end'
+}, {
+  name: 'menu-alt',
+  value: 'stretch'
 }];
 const Inspector = _ref => {
   let {

@@ -178,9 +178,12 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	}
 
 	const deskStyles = `
-		.${ uniqueId } .bdt-button-wrap{
-				text-align: ${ btnAlign };
-		}
+	
+		.${ uniqueId } .bdt-link-btn{
+			display: flex;
+			align-items: ${ btnAlign };
+			flex-direction: column;
+		};
  	    .${ uniqueId } .bdt-link-btn span{
 			border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'
@@ -225,9 +228,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	// tab style
 
 	const tabStyles = `
-	.${ uniqueId } .bdt-button-wrap{
-		text-align: ${ btnAlign };	
-	}
+	.${ uniqueId } .bdt-link-btn{
+		display: flex;
+		align-items: ${ btnAlign };
+		flex-direction: column;
+	};
 	.${ uniqueId } .bdt-link-btn span{
 		border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'
@@ -272,9 +277,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	// mob style
 
 	const mobStyles = `
-	.${ uniqueId } .bdt-button-wrap{
-		text-align: ${ btnAlign };
-	}
+	.${ uniqueId } .bdt-link-btn{
+		display: flex;
+		align-items: ${ btnAlign };
+		flex-direction: column;
+	};
 	.${ uniqueId } .bdt-link-btn span{
 		border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'
