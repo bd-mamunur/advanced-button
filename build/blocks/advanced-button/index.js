@@ -319,7 +319,7 @@ function Edit(_ref) {
 			display: flex;
 			align-items: ${btnAlign};
 			flex-direction: column;
-		};
+		}
  	    .${uniqueId} .bdt-link-btn span{
 			border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};	
 			font-size:${btnFontSizeDesk}${btnFontUnit};
@@ -356,7 +356,7 @@ function Edit(_ref) {
 		display: flex;
 		align-items: ${btnAlign};
 		flex-direction: column;
-	};
+	}
 	.${uniqueId} .bdt-link-btn span{
 		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeTab}${btnFontUnit};
@@ -393,7 +393,7 @@ function Edit(_ref) {
 		display: flex;
 		align-items: ${btnAlign};
 		flex-direction: column;
-	};
+	}
 	.${uniqueId} .bdt-link-btn span{
 		border:${btnBorder ? btnBorder : 1}px ${btnborderStyle} ${btnBorderColor ? btnBorderColor : '#ccc'};
 		font-size:${btnFontSizeMob}${btnFontUnit};
@@ -560,7 +560,7 @@ const alignIconOption = [{
   name: 'editor-alignright',
   value: 'flex-end'
 }, {
-  name: 'menu-alt',
+  name: 'editor-justify',
   value: 'stretch'
 }];
 const Inspector = _ref => {

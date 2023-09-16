@@ -183,7 +183,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 			display: flex;
 			align-items: ${ btnAlign };
 			flex-direction: column;
-		};
+		}
  	    .${ uniqueId } .bdt-link-btn span{
 			border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'
@@ -232,7 +232,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		display: flex;
 		align-items: ${ btnAlign };
 		flex-direction: column;
-	};
+	}
 	.${ uniqueId } .bdt-link-btn span{
 		border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'
@@ -281,7 +281,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		display: flex;
 		align-items: ${ btnAlign };
 		flex-direction: column;
-	};
+	}
 	.${ uniqueId } .bdt-link-btn span{
 		border:${ btnBorder ? btnBorder : 1 }px ${ btnborderStyle } ${
 		btnBorderColor ? btnBorderColor : '#ccc'

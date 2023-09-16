@@ -31,7 +31,7 @@ const alignIconOption = [
 	{ name: 'editor-alignleft', value: 'flex-start' },
 	{ name: 'editor-aligncenter', value: 'center' },
 	{ name: 'editor-alignright', value: 'flex-end' },
-	{ name: 'menu-alt', value: 'stretch' },
+	{ name: 'editor-justify', value: 'stretch' },
 ];
 
 const Inspector = ( { attributes, setAttributes } ) => {
